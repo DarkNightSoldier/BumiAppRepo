@@ -22,7 +22,7 @@ class ColaSLL(ListaEnlazadaConCola):
         return self.cabeza.dato
 
 #La colaDLL implementa la lista doblemente enlazada con cola
-class ColaSLL(ListaEnlazadaDoble):
+class ColaDLL(ListaEnlazadaDoble):
     def __init__(self):
         super().__init__()
     
