@@ -1,5 +1,5 @@
-from cola_circular import ColaCircularDoble
-from pedido import Pedido
+from ..estructuras.cola_circular import ColaCircularDoble
+from ..objetos.pedido import Pedido
 
 cola_de_pedidos = None
 estructura_de_datos = 1

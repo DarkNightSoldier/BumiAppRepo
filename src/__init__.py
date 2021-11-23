@@ -1,1 +1,1 @@
-from .link_list import LinkedList, DoubleLinkedList, LinkedListTail, DoubleLinkedListTail
+from .estructuras.Lista import LinkedList, DoubleLinkedList, LinkedListTail, DoubleLinkedListTail
