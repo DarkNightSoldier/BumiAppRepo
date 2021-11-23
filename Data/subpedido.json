@@ -1,0 +1,23 @@
+{
+    "100": {
+        "pedido_padre":"1",
+        "id_producto": "123",
+        "cantidad": "12",
+        "impuesto": "19",
+        "descuento": "1000"
+    },
+    "102": {
+        "pedido_padre":"1",
+        "id_producto": "467",
+        "cantidad": "15",
+        "impuesto": "0",
+        "descuento": "1000"
+    },
+    "104": {
+        "pedido_padre":"1",
+        "id_producto": "789",
+        "cantidad": "20",
+        "impuesto": "5",
+        "descuento": "500"
+    }
+}
