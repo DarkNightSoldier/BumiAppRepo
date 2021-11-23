@@ -58,35 +58,18 @@ class ListaEnlazadaCircularDoble():
         nodo_2.siguiente.previo = nodo_2
         self.lenght += 1
 
-    def insertar_con_orden(self,dato):
-        """
-        Inserta un nuevo nodo con el dato indicado teniendo en 
-        cuenta el orden decreciente dado por id.
-        """
-        if self.lenght == 0:
-            self.empujar_adelante(dato)
-        elif self.cabeza.dato.id == dato.id:
-            raise Exception("Lo siento, el id ya se encuentra en lista.".format(id=id))
-        elif self.lenght == 1 and self.cabeza.dato.id < dato.id:
-            self.anadir_despues_de(self.cabeza,dato)
-        elif self.cabeza.dato.id > dato.id:
-            self.empujar_adelante(dato)
-        elif self.cabeza.previo.dato.id < dato.id:
-            self.anadir_despues_de(self.cabeza.previo,dato)
-        elif self.cabeza.previo.dato.id == dato.id:
-            raise Exception("Lo siento, el id ya se encuentra en lista.".format(id=id))
+    #Añade un nuevo nodo en el previo a la cabeza
+    def empujar_atras(self,dato):
+        if self.lenght==0:
+            nuevo_nodo = Nodo(dato)
+            self.cabeza = nuevo_nodo
+            self.cabeza.previo = self.cabeza
+            self.cabeza.siguiente = self.cabeza
+            self.lenght += 1
         else:
-            puntero_actual = self.cabeza
-            for i in range(0,self.lenght-2):
-                puntero_actual = puntero_actual.siguiente
-                if puntero_actual.dato.id > dato.id:
-                    self.anadir_despues_de(puntero_actual.previo,dato)
-                    break
-                elif puntero_actual.dato.id == dato.id:
-                    raise Exception("Lo siento, el id ya se encuentra en lista.".format(id=id))
+            self.anadir_despues_de(self.cabeza.previo,dato)
     
-    def eliminar_cabeza(self):
-        dato_a_borrar = self.cabeza.dato
+    def eliminar_adelante(self):
         if self.lenght==1:
             self.cabeza = None
         else:
@@ -96,7 +79,6 @@ class ListaEnlazadaCircularDoble():
             aux_previo.siguiente = self.cabeza.siguiente
             self.cabeza = aux_siguiente
         self.lenght -=1
-        return dato_a_borrar
     
     def eliminar(self,id):
         try:
