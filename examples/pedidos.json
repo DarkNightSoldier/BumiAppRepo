@@ -1,6 +1,5 @@
 {
-    "1":{"id":"1",
-        "pedido_padre":"1",
+    "1":{"pedido_padre":"1",
         "id_cliente":"1000182041",
         "id_conductor":"0",
         "estado":"cancelado",
