@@ -33,14 +33,14 @@ class Usuario:
 class Cliente(Usuario):
     def __init__(self, id, nombres, apellidos, contrasena, 
     correo, ciudad, direccion, telefono, zip):
-        pedidos = ""
+        pedidos = None
         super().__init__(id, nombres, apellidos,"usuario", contrasena,
         correo, ciudad, direccion, telefono, zip, pedidos)
 
 class Funcionario(Usuario):
     def __init__(self, id, nombres, apellidos, contrasena, 
     correo, ciudad, direccion, telefono, zip):
-        pedidos = ""
+        pedidos = None
         super().__init__(id, nombres, apellidos,"funcionario", contrasena,
         correo, ciudad, direccion, telefono, zip, pedidos)
 
