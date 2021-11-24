@@ -202,7 +202,6 @@ def crear_pedido():
     subtotal = data["subtotal"]
     impuestos = data["impuestos"]
     total = data["total"]
-
     return jsonify({'status' : 200})
 
 @app.route("/api/articulo/eliminar_pedido", methods = ["POST"])
