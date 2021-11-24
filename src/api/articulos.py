@@ -1,5 +1,5 @@
-from lista_circular_doble import ListaEnlazadaCircularDoble
-from producto import Articulo
+from ..estructuras.lista_circular_doble import ListaEnlazadaCircularDoble
+from ..objetos.producto import Articulo
 
 coleccion_de_articulos = None
 estructura_de_datos = 1

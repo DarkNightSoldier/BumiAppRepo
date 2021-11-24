@@ -34,6 +34,7 @@ def status():
     """
     App Status
     """
+    Cliente()
     return jsonify({'status' : 200})
 
 @app.route("/api/usuario/nuevo_cliente", methods = ["POST"])
@@ -236,3 +237,10 @@ def mostrar_pedido_en_cola():
 
 if __name__ == '__main__':
     app.run(debug=False)
+
+@app.route('/usuario/crear_usuario', methods = ["POST"])
+def crear_usuario():
+    datos = request.data
+    cliente = Cliente(*datos)
+    
+    return jsonify({'status' : 200})
