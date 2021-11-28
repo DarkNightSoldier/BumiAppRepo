@@ -67,12 +67,48 @@ class ColaArrayBased():
         self.lista.append(dato)
     
     def desencolar(self):
-        if len(self.lista)>0:
-            self.lista.pop(0)
+        if len(self.lista) > 0:
+            return self.lista.pop(0)
         else:
-            raise Exception("Error,cola vacía")
+            raise Exception("Error, cola vacía")
 
     def peek(self):
-        return self.lista[0]
+        if len(self.list) > 0:
+            return self.lista[0]
+        else: 
+            raise Exception("Error, cola vacía.")
 
-    
+    def obtener_indice(self, id):
+        for i in range(self.lista):
+            elemento = self.list[i]
+            if elemento.id == id:
+                return i
+        return -1
+
+    def buscar(self, id):
+        for i in range(self.lista):
+            elemento = self.list[i]
+            if elemento.id == id:
+                return elemento
+        return -1
+
+    def eliminar(self, id):
+        existe = not isinstance(self.buscar(id), int)
+        if not existe: 
+            raise Exception("El Id no existe.")
+        else: 
+            copia = list()
+            for i in range(self.lista):
+                elemento = self.list[i]
+                if elemento.id != id:
+                    copia.append(elemento)
+            self.lista = copia
+            return self.lista
+
+    def actualizar_elemento(self, id, atributo, valor):
+        j = self.obtener_indice(id)
+        if j != -1:
+            setattr(self.lista[j], atributo, valor)
+            return 1
+        else: 
+            raise Exception("El Id no existe.")
