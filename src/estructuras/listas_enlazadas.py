@@ -103,7 +103,7 @@ class ListaEnlazada:
     # Search.
     def buscar_nodo(self, id):
         if self.cabeza == None:
-            raise Exception("Lista vacía.")
+            return None
         else:
             actual = self.cabeza
             while actual != None:

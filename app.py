@@ -100,17 +100,17 @@ def consultar_usuario():
     if isinstance(objeto, int): 
         return jsonify({'mensaje' : "El usuario no existe."}), 404
     data = {}
-    data["id"] = objeto.id
-    data["nombres"] = objeto.nombres
-    data["apellidos"] = objeto.apellidos
-    data["rol"] = objeto.rol
-    data["contrasena"] = objeto.contrasena
-    data["correo"] = objeto.correo
-    data["ciudad"] = objeto.ciudad
-    data["direccion"] = objeto.direccion
-    data["telefono"] = objeto.telefono
-    data["zip"] = objeto.zip
-    data["pedidos"] = objeto.pedidos
+    data["id"] = objeto.dato.id
+    data["nombres"] = objeto.dato.nombres
+    data["apellidos"] = objeto.dato.apellidos
+    data["rol"] = objeto.dato.rol
+    data["contrasena"] = objeto.dato.contrasena
+    data["correo"] = objeto.dato.correo
+    data["ciudad"] = objeto.dato.ciudad
+    data["direccion"] = objeto.dato.direccion
+    data["telefono"] = objeto.dato.telefono
+    data["zip"] = objeto.dato.zip
+    data["pedidos"] = objeto.dato.pedidos
     return jsonify({'status' : 200})
 
 @app.route("/api/usuario/eliminar_usuario", methods = ["POST"])
@@ -219,12 +219,6 @@ def actualizar_pedido():
 
 @app.route("/api/articulo/anadir_pedido_a_funcionario", methods = ["POST"])
 def anadir_pedido_a_funcionario():
-    data = request.values
-    id = data["id"]
-    return jsonify({'status' : 200})
-
-@app.route("/api/articulo/mostrar_pedido_en_cola", methods = ["POST"])
-def mostrar_pedido_en_cola():
     data = request.values
     id = data["id"]
     return jsonify({'status' : 200})
