@@ -162,13 +162,13 @@ def consultar_articulo():
     if isinstance(objeto, int): 
         return jsonify({'mensaje' : "El usuario no existe."}), 404
     data = {}
-    data["id"] = objeto.id
-    data["nombre"] = objeto.nombre
-    data["stock"] = objeto.stock
-    data["url_img"] = objeto.url_img
-    data["precio_antes_impuesto"] = objeto.precio_antes_impuesto
-    data["impuesto_porcentaje"] = objeto.impuesto_porcentaje
-    data["descuento"] = objeto.descuento
+    data["id"] = objeto.dato.id
+    data["nombre"] = objeto.dato.nombre
+    data["stock"] = objeto.dato.stock
+    data["url_img"] = objeto.dato.url_img
+    data["precio_antes_impuesto"] = objeto.dato.precio_antes_impuesto
+    data["impuesto_porcentaje"] = objeto.dato.impuesto_porcentaje
+    data["descuento"] = objeto.dato.descuento
     return jsonify({'datos' : data})
 
 @app.route("/api/articulo/eliminar_articulo", methods = ["POST"])
