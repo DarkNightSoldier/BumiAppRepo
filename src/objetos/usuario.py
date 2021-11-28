@@ -1,4 +1,5 @@
 from flask import jsonify
+from ..estructuras.colas import ColaArrayBased
 
 class Usuario:
 
@@ -33,14 +34,14 @@ class Usuario:
 class Cliente(Usuario):
     def __init__(self, id, nombres, apellidos, contrasena, 
     correo, ciudad, direccion, telefono, zip):
-        pedidos = None
+        pedidos = ColaArrayBased()
         super().__init__(id, nombres, apellidos,"usuario", contrasena,
         correo, ciudad, direccion, telefono, zip, pedidos)
 
 class Funcionario(Usuario):
     def __init__(self, id, nombres, apellidos, contrasena, 
     correo, ciudad, direccion, telefono, zip):
-        pedidos = None
+        pedidos = ColaArrayBased()
         super().__init__(id, nombres, apellidos,"funcionario", contrasena,
         correo, ciudad, direccion, telefono, zip, pedidos)
 
