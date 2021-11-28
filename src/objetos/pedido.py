@@ -2,10 +2,10 @@ import math
 
 class Pedido:
 
-    def __init__(self,id_pedido,id_cliente):
-        self.id_pedido = id_pedido
+    def __init__(self, id,id_cliente):
+        self.id = id
         self.id_cliente = id_cliente
-        self.pedido_padre =  id_pedido
+        self.pedido_padre =  id
         self.id_conductor = 0
         self.estado = "por entregar"
         self.frecuencia = 0
@@ -22,8 +22,9 @@ class Pedido:
         self.carrito = None
         self.coleccion_de_productos = None
 
-    def cargar_desde_diccionario(self,dicc):
-        self.id_pedido = dicc["id_pedido"]
+ 
+
+    def cargar_desde_diccionario(self, dicc: dict):
         self.pedido_padre = dicc["pedido_padre"]
         self.id_conductor = dicc["id_conductor"]
         self.estado = dicc["estado"]
@@ -63,3 +64,21 @@ class Pedido:
                 self.total += math.floor(producto.precio_antes_impuesto*(1+(self.impuesto_porcentaje/100)))-self.producto_descuentos
         #Al final vaciamos el carrito para ahorrar espacio en memoria
         self.carrito = None
+
+    def obtener_informacion(self):
+        data = {}
+        data["id"] = self.id
+        data["id_cliente"] = self.id_cliente
+        data["pedido_padre"] = self.pedido_padre
+        data["id_conductor"] = self.id_conductor
+        data["estado"] = self.estado
+        data["productos"] = self.productos
+        data["cantidades"] = self.cantidades
+        data["valor_producto_sin_impuestos"] = self.valor_producto_sin_impuestos
+        data["impuestos_productos"] = self.impuestos_productos
+        data["valor_descuentos"] = self.valor_descuentos
+        data["moneda"] = self.moneda
+        data["subtotal"] = self.subtotal
+        data["impuestos"] = self.impuestos
+        data["total"] = self.total
+        return data

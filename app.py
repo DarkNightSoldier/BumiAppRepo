@@ -2,12 +2,15 @@ import src
 from flask import Flask, jsonify, request, make_response
 from flask.helpers import send_from_directory 
 from flask_cors import CORS
+from src.estructuras.colas import ColaArrayBased
 from src.estructuras.listas_enlazadas import ListaEnlazada, ListaEnlazadaConCola, ListaEnlazadaDoble
 from src.objetos.usuario import Cliente, Funcionario
 from src.objetos.producto import Articulo
+from src.objetos.pedido import Pedido
 
 articulos = ListaEnlazadaConCola()
 usuarios = ListaEnlazadaDoble()
+pedidos = ColaArrayBased()
 
 # Ini app.
 app = Flask(__name__)
@@ -34,7 +37,6 @@ def status():
     """
     App Status
     """
-    Cliente()
     return jsonify({'status' : 200})
 
 @app.route("/api/usuario/nuevo_cliente", methods = ["POST"])
@@ -140,7 +142,7 @@ def crear_nuevo_articulo():
     articulos.empujar_atras(articulo)
     return jsonify({'status' : 200})
 
-@app.route("/api/usuario/actualizar_articulo", methods = ["POST"])
+@app.route("/api/articulo/actualizar_articulo", methods = ["POST"])
 def actualizar_articulo():
     data = request.values
     id = data["id"]
@@ -179,62 +181,82 @@ def eliminar_articulo():
         return jsonify({'error' : str(e)}), 401
     return jsonify({'status' : 200})
 
-@app.route("/api/articulo/consultar_pedido", methods = ["POST"])
+@app.route("/api/pedido/crear_pedido", methods = ["POST"])
+def crear_pedido():
+    data = request.values
+    id_pedido = data["id"]
+    id_cliente = data["id_cliente"]
+    pedido = Pedido(id_pedido, id_cliente)
+    pedido.cargar_desde_diccionario(data)
+    pedidos.encolar(pedido)
+    return jsonify({'status' : 200})
+
+@app.route("/api/pedido/consultar_pedido", methods = ["POST"])
 def consultar_pedido():
     data = request.values
     id = data["id"]
-    return jsonify({'status' : 200})
-    
-@app.route("/api/articulo/crear_pedido", methods = ["POST"])
-def crear_pedido():
-    data = request.values
-    id_cliente = data["id_cliente"]
-    coleccion_de_productos = data["coleccion_de_productos"]
-    pedido_padre = data["pedido_padre"]
-    id_conductor = data["id_conductor"]
-    estado = data["estado"]
-    frecuencia = data["frecuencia"]
-    productos = data["productos"]
-    cantidades = data["cantidades"]
-    valor_producto_sin_impuestos = data["valor_producto_sin_impuestos"]
-    impuestos_productos = data["impuestos_productos"]
-    valor_descuentos = data["valor_descuentos"]
-    moneda = data["moneda"]
-    subtotal = data["subtotal"]
-    impuestos = data["impuestos"]
-    total = data["total"]
-    return jsonify({'status' : 200})
+    pedido = pedidos.buscar(id)
+    if isinstance(pedido, int):
+        return jsonify({'mensaje' : "Id no encontrado."}), 404
+    datos = pedido.obtener_informacion()
+    return jsonify({'datos' : datos})
 
-@app.route("/api/articulo/eliminar_pedido", methods = ["POST"])
+@app.route("/api/pedido/eliminar_pedido", methods = ["POST"])
 def eliminar_pedido():
     data = request.values
     id = data["id"]
-    return jsonify({'status' : 200})
+    try:
+        pedidos.eliminar(id)
+        return jsonify({'status' : 200})
+    except Exception as e: 
+        return jsonify({'status' : str(e)})
 
-@app.route("/api/articulo/actualizar_pedido", methods = ["POST"])
+@app.route("/api/pedido/actualizar_pedido", methods = ["POST"])
 def actualizar_pedido():
     data = request.values
     id = data["id"]
-    return jsonify({'status' : 200})
+    atributo = data["atributo"]
+    valor = data["valor"]
+    try:
+        pedidos.actualizar_elemento(id, atributo, valor)
+    except Exception as e: 
+        return jsonify({"mensaje": str(e)})
 
-@app.route("/api/articulo/anadir_pedido_a_funcionario", methods = ["POST"])
-def anadir_pedido_a_funcionario():
-    data = request.values
-    id = data["id"]
-    return jsonify({'status' : 200})
-
-@app.route("/api/articulo/mostrar_pedido_en_cola", methods = ["POST"])
+@app.route("/api/pedido/mostrar_pedido_en_cola", methods = ["POST"])
 def mostrar_pedido_en_cola():
     data = request.values
-    id = data["id"]
+    try:
+        pedido = pedidos.peek()
+        datos = pedido.obtener_informacion()
+        return jsonify({'datos' : datos})
+    except:
+        return jsonify({'status' : 200})
+
+@app.route("/api/pedido/anadir_pedido_a_funcionario", methods = ["POST"])
+def anadir_pedido_a_funcionario():
+    data = request.values
+    id_pedido = data["id_pedido"]
+    id_funcionario = data["id_funcionario"]
+    pedido = pedidos.buscar(id_pedido)
+    if isinstance(pedido, int):
+        return jsonify({'mensaje' : "El id no existe."})
+    funcionario = usuarios.buscar_nodo(id_funcionario)
+    funcionario.pedidos.encolar(pedido)
     return jsonify({'status' : 200})
 
+<<<<<<< HEAD
+=======
+@app.route("/api/pedido/marcar_pedido_entregado", methods = ["POST"])
+def marcar_pedido():
+    data = request.values
+    id_funcionario = data["id_funcionario"]
+    funcionario = usuarios.buscar_nodo(id_funcionario)
+    try:
+        funcionario.pedidos.desencolar()
+    except Exception as e:
+        return jsonify({'mensaje' : str(e)})
+    return jsonify({'status' : 200})
+
+>>>>>>> a9faabb71e2fe6127660f751f62e05dfc0755694
 if __name__ == '__main__':
     app.run(debug=False)
-
-@app.route('/usuario/crear_usuario', methods = ["POST"])
-def crear_usuario():
-    datos = request.data
-    cliente = Cliente(*datos)
-    
-    return jsonify({'status' : 200})
