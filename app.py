@@ -235,13 +235,24 @@ def mostrar_pedido_en_cola():
 @app.route("/api/pedido/anadir_pedido_a_funcionario", methods = ["POST"])
 def anadir_pedido_a_funcionario():
     data = request.values
-    id = data["id"]
+    id_pedido = data["id_pedido"]
+    id_funcionario = data["id_funcionario"]
+    pedido = pedidos.buscar(id_pedido)
+    if isinstance(pedido, int):
+        return jsonify({'mensaje' : "El id no existe."})
+    funcionario = usuarios.buscar_nodo(id_funcionario)
+    funcionario.pedidos.encolar(pedido)
     return jsonify({'status' : 200})
 
-@app.route("/api/pedido/marcar_pedido", methods = ["POST"])
+@app.route("/api/pedido/marcar_pedido_entregado", methods = ["POST"])
 def marcar_pedido():
     data = request.values
-    id = data["id"]
+    id_funcionario = data["id_funcionario"]
+    funcionario = usuarios.buscar_nodo(id_funcionario)
+    try:
+        funcionario.pedidos.desencolar()
+    except Exception as e:
+        return jsonify({'mensaje' : str(e)})
     return jsonify({'status' : 200})
 
 if __name__ == '__main__':
