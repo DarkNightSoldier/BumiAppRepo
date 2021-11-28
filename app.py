@@ -207,9 +207,9 @@ def eliminar_pedido():
     id = data["id"]
     try:
         pedidos.eliminar(id)
-        return jsonify({'status' : 200})
+        return jsonify({'status' : 200}), 200
     except Exception as e: 
-        return jsonify({'status' : str(e)})
+        return jsonify({'status' : str(e)}), 404
 
 @app.route("/api/pedido/actualizar_pedido", methods = ["POST"])
 def actualizar_pedido():
@@ -220,17 +220,16 @@ def actualizar_pedido():
     try:
         pedidos.actualizar_elemento(id, atributo, valor)
     except Exception as e: 
-        return jsonify({"mensaje": str(e)})
+        return jsonify({"mensaje": str(e)}), 404
 
-@app.route("/api/pedido/mostrar_pedido_en_cola", methods = ["POST"])
+@app.route("/api/pedido/mostrar_pedido_en_cola", methods = ["GET"])
 def mostrar_pedido_en_cola():
-    data = request.values
     try:
         pedido = pedidos.peek()
         datos = pedido.obtener_informacion()
-        return jsonify({'datos' : datos})
+        return jsonify({'datos' : datos}), 200
     except:
-        return jsonify({'status' : 200})
+        return jsonify({'status' : 400}), 404
 
 @app.route("/api/pedido/anadir_pedido_a_funcionario", methods = ["POST"])
 def anadir_pedido_a_funcionario():
