@@ -40,7 +40,7 @@ class ListaEnlazada:
     # Pop Back.
     def eliminar_atras(self):
         if self.cabeza == None:
-            raise Exception("Lista vacía.")
+            raise None
         if self.cabeza.siguiente == None:
             self.cabeza = None
         else:
@@ -53,7 +53,7 @@ class ListaEnlazada:
     def anadir_despues(self, id, dato):
         nodo = Nodo(dato)
         if self.cabeza == None:
-            return Exception("Lista vacía.")
+            return None
         else:
             actual = self.cabeza
             while actual.siguiente != None:
@@ -69,7 +69,7 @@ class ListaEnlazada:
     def anadir_antes(self, id, dato):
         nodo = Nodo(dato)
         if self.cabeza == None:
-            return Exception("Lista vacía.")
+            return None
         if self.cabeza.dato.id == id:
             self.empujar_adelante(dato)
         else:
@@ -87,7 +87,7 @@ class ListaEnlazada:
     # Delete using id.
     def eliminar(self, id):
         if self.cabeza == None:
-            return Exception("Lista vacía.")
+            return None
         if self.cabeza.dato.id == id:
             self.cabeza = self.cabeza.siguiente
         else:
@@ -103,7 +103,7 @@ class ListaEnlazada:
     # Search.
     def buscar_nodo(self, id):
         if self.cabeza == None:
-            raise Exception("Lista vacía.")
+            raise None
         else:
             actual = self.cabeza
             while actual != None:
