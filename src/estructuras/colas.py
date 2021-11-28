@@ -1,5 +1,5 @@
-from listas_enlazadas import ListaEnlazadaConCola,ListaEnlazadaDoble
-from lista_circular_doble import ListaEnlazadaCircularDoble
+from .listas_enlazadas import ListaEnlazadaConCola,ListaEnlazadaDoble
+from .lista_circular_doble import ListaEnlazadaCircularDoble
 
 
 #La colaSLL implementa la lista enlazada con cola
@@ -21,6 +21,17 @@ class ColaSLL(ListaEnlazadaConCola):
     def peek(self):
         return self.cabeza.dato
 
+    def imprimir(self):
+        a_imprimir = ""
+        if self.cabeza!=None:
+            nodo_actual = self.cabeza
+            a_imprimir += nodo_actual.dato.id
+            while nodo_actual.siguiente!=None:
+                nodo_actual = nodo_actual.siguiente
+                a_imprimir += nodo_actual.dato.id
+        return a_imprimir
+        
+
 #La colaDLL implementa la lista doblemente enlazada con cola
 class ColaDLL(ListaEnlazadaDoble):
     def __init__(self):
@@ -39,6 +50,16 @@ class ColaDLL(ListaEnlazadaDoble):
 
     def peek(self):
         return self.cabeza.dato
+    
+    def imprimir(self):
+        a_imprimir = ""
+        if self.cabeza!=None:
+            nodo_actual = self.cabeza
+            a_imprimir += nodo_actual.dato.id
+            while nodo_actual.siguiente!=None:
+                nodo_actual = nodo_actual.siguiente
+                a_imprimir += nodo_actual.dato.id
+        return a_imprimir
 
 #La cola circular doble implementa la lista enlazada circular doble
 class ColaCircularDoble(ListaEnlazadaCircularDoble):
@@ -58,6 +79,16 @@ class ColaCircularDoble(ListaEnlazadaCircularDoble):
 
     def peek(self):
         return self.cabeza.dato
+
+    def imprimir(self):
+        a_imprimir = ""
+        if self.cabeza!=None:
+            nodo_actual = self.cabeza
+            a_imprimir += nodo_actual.dato.id
+            while nodo_actual.siguiente!=None:
+                nodo_actual = nodo_actual.siguiente
+                a_imprimir += nodo_actual.dato.id
+        return a_imprimir
 
 class ColaArrayBased():
     def __init__(self):
@@ -112,3 +143,10 @@ class ColaArrayBased():
             return 1
         else: 
             raise Exception("El Id no existe.")
+    
+    def imprimir(self):
+
+        a_imprimir = ""
+        for i in range(0,len(self.lista)):
+            a_imprimir += self.lista[i].id
+        return a_imprimir
