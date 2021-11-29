@@ -1,82 +1,802 @@
 {
-    "105140745": {
-        "nombre": "Jason Kerr",
-        "stock": 239,
-        "url_img": "https://410297dfd651434483bd62ad06161f63.png",
-        "precio_antes_impuesto": 24898,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.3204850449515847
+    "14912858828": {
+        "nombre": "Tony Decker",
+        "stock": 155,
+        "url_img": "https://b4206cc6657442548de09849be39ad81.png",
+        "precio_antes_impuesto": 47297,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9622083502916231
     },
-    "151646382": {
-        "nombre": "Justin Vega",
-        "stock": 442,
-        "url_img": "https://63c6f51b738e412a9f74a2110f962bbb.png",
-        "precio_antes_impuesto": 40967,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.7873411596662314
+    "19038047659": {
+        "nombre": "Jacob Vega",
+        "stock": 100,
+        "url_img": "https://1ef289428e4c416f8ea1537240d86074.png",
+        "precio_antes_impuesto": 38565,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.17994059231910176
     },
-    "148875188": {
-        "nombre": "Mary Smith",
-        "stock": 362,
-        "url_img": "https://4d890d2da2e14020866c846488910352.png",
-        "precio_antes_impuesto": 31395,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.9763531924208013
+    "17343989364": {
+        "nombre": "Andrew Jones",
+        "stock": 258,
+        "url_img": "https://32e2c78a1bb0448ab597237f5ccf7923.png",
+        "precio_antes_impuesto": 43882,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7289394872759345
     },
-    "166630541": {
-        "nombre": "Juan Ho",
-        "stock": 466,
-        "url_img": "https://b61f547ec7d94b3d8987b541cbcdd0eb.png",
-        "precio_antes_impuesto": 43101,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.4025807400499323
+    "8301834965": {
+        "nombre": "Joshua Bauer",
+        "stock": 27,
+        "url_img": "https://72c41b50e1e64485b65e1c58b849087a.png",
+        "precio_antes_impuesto": 30047,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.49604740279842885
     },
-    "131379432": {
-        "nombre": "Victoria Long",
-        "stock": 180,
-        "url_img": "https://f24bf155fed34c998b9db20f3978b656.png",
-        "precio_antes_impuesto": 32392,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.8957144499154673
+    "3912141400": {
+        "nombre": "Christine Elliott",
+        "stock": 191,
+        "url_img": "https://0433397e37cc4bb0927ae3e8296ad483.png",
+        "precio_antes_impuesto": 40328,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8842780653539566
     },
-    "101144647": {
-        "nombre": "Michael Gibson",
-        "stock": 168,
-        "url_img": "https://dc4c58530fc24ac482ee3a8c33a6e5f6.png",
-        "precio_antes_impuesto": 36860,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.08538282498545291
+    "17465530322": {
+        "nombre": "Curtis Barber",
+        "stock": 29,
+        "url_img": "https://6d8b9a196b414c379c7d2a8076674bb4.png",
+        "precio_antes_impuesto": 48994,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.30055771155933053
     },
-    "168324030": {
-        "nombre": "Jill Sanchez",
-        "stock": 205,
-        "url_img": "https://cb86f4cfecde44b9b79d2ca768ac5ed6.png",
-        "precio_antes_impuesto": 29340,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.948746866598209
+    "13865770647": {
+        "nombre": "Shirley Horton",
+        "stock": 317,
+        "url_img": "https://a6c2e713964640a69a995ef75fe661b5.png",
+        "precio_antes_impuesto": 48257,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.2076231875707617
     },
-    "146872621": {
-        "nombre": "Derek Zavala",
-        "stock": 242,
-        "url_img": "https://ab9641670e114692b9427113150c63b9.png",
-        "precio_antes_impuesto": 31628,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.5513843342799192
-    },
-    "159680496": {
-        "nombre": "Charles Bryan",
-        "stock": 269,
-        "url_img": "https://34aeba71982f414aa18c74368cb76fc2.png",
-        "precio_antes_impuesto": 22348,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.4677031589748819
-    },
-    "107126567": {
-        "nombre": "Kimberly Ellis",
+    "1671376073": {
+        "nombre": "Joseph Hicks",
         "stock": 24,
-        "url_img": "https://14e0ec309f114a93907e5ff4c87b3dbc.png",
-        "precio_antes_impuesto": 48309,
-        "impuest_porcentaje": 0.19,
-        "descuento": 0.4524896573141005
+        "url_img": "https://37de9ce501914707b846aaf900f3c47e.png",
+        "precio_antes_impuesto": 31225,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.1250771010443542
+    },
+    "15717715549": {
+        "nombre": "Andrea Morrow",
+        "stock": 285,
+        "url_img": "https://d47b1dbc436c41288949ac3fbdc0dbfe.png",
+        "precio_antes_impuesto": 40479,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.0808146848308402
+    },
+    "8611339384": {
+        "nombre": "Miranda Rodriguez",
+        "stock": 383,
+        "url_img": "https://6e532b83012447ebb86a823fcafd701b.png",
+        "precio_antes_impuesto": 22153,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9005513907238982
+    },
+    "15299333071": {
+        "nombre": "Nicole May",
+        "stock": 371,
+        "url_img": "https://55b2f51495b240529e28024ceb588d7f.png",
+        "precio_antes_impuesto": 36950,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6014381719982642
+    },
+    "9203664410": {
+        "nombre": "Scott Robles",
+        "stock": 288,
+        "url_img": "https://52f63a2a88b6483f9e3aee27527d1305.png",
+        "precio_antes_impuesto": 38100,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6668005652413055
+    },
+    "10681751574": {
+        "nombre": "Melissa Pierce",
+        "stock": 304,
+        "url_img": "https://d26d8b5eb696452dafb44ae06c2a0484.png",
+        "precio_antes_impuesto": 24977,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7588230889332009
+    },
+    "1582671497": {
+        "nombre": "Melissa Oconnor",
+        "stock": 305,
+        "url_img": "https://2b4a9eb22fee463d85ea5965bcfa6290.png",
+        "precio_antes_impuesto": 32732,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.3651241754681457
+    },
+    "16347634136": {
+        "nombre": "Lisa Moore",
+        "stock": 423,
+        "url_img": "https://cef0b6ce119c4d15ad4e4019edf86aff.png",
+        "precio_antes_impuesto": 33376,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.2134000680368292
+    },
+    "4607406731": {
+        "nombre": "Brittany Richardson",
+        "stock": 498,
+        "url_img": "https://c5473d56ba8644b195beff3e2ddf6966.png",
+        "precio_antes_impuesto": 20599,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.20413518437769917
+    },
+    "3091202180": {
+        "nombre": "Kara Lewis",
+        "stock": 31,
+        "url_img": "https://49388d20f6cb446e957f0e0e3de70c3a.png",
+        "precio_antes_impuesto": 25968,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.30647082400460024
+    },
+    "13075405772": {
+        "nombre": "Nicole Ramirez",
+        "stock": 468,
+        "url_img": "https://17c764bf803e48968f7198ba1c03cc63.png",
+        "precio_antes_impuesto": 22492,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.07977441168787303
+    },
+    "11201606746": {
+        "nombre": "James Johnson",
+        "stock": 118,
+        "url_img": "https://ca9d23d0cf3342e7bc776477718444ad.png",
+        "precio_antes_impuesto": 41398,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9120305304986722
+    },
+    "8508992303": {
+        "nombre": "Dr. Sara Flores",
+        "stock": 496,
+        "url_img": "https://bb4b223314ab418ca49dda3e4c57569a.png",
+        "precio_antes_impuesto": 49954,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.05865305125331188
+    },
+    "12653618604": {
+        "nombre": "Joseph Skinner",
+        "stock": 349,
+        "url_img": "https://ffaeecb7da7a45b98b964a3c6e032c3a.png",
+        "precio_antes_impuesto": 28917,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.4146168294539464
+    },
+    "14565715372": {
+        "nombre": "Luis Green",
+        "stock": 295,
+        "url_img": "https://75046596e02b41bb9a17cc0b73e818ff.png",
+        "precio_antes_impuesto": 42857,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5894389332807354
+    },
+    "13799227739": {
+        "nombre": "Marcus Fleming",
+        "stock": 433,
+        "url_img": "https://af212ba84951440f9c2b9f68e6d468fd.png",
+        "precio_antes_impuesto": 21697,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8968502530851417
+    },
+    "1463205226": {
+        "nombre": "Steven Weiss",
+        "stock": 276,
+        "url_img": "https://219eb7531c98430d8dc4cfc52689463d.png",
+        "precio_antes_impuesto": 34104,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.4211406509957142
+    },
+    "1463356186": {
+        "nombre": "Veronica Williams",
+        "stock": 207,
+        "url_img": "https://38709c6e4c9240e2b40a4bdbb6b01b65.png",
+        "precio_antes_impuesto": 41330,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8074368483170783
+    },
+    "2306056640": {
+        "nombre": "Kyle Santos",
+        "stock": 247,
+        "url_img": "https://bac2aba3304344678c5353b474e77137.png",
+        "precio_antes_impuesto": 34354,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.802221766282611
+    },
+    "17269469641": {
+        "nombre": "Meagan Wilkerson",
+        "stock": 424,
+        "url_img": "https://e81553bacf8a4c9a8443ce37e2d5eb70.png",
+        "precio_antes_impuesto": 46685,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6426051186616003
+    },
+    "1095585376": {
+        "nombre": "Erica Mercado PhD",
+        "stock": 142,
+        "url_img": "https://97c101365b3c4413adf1ca344a2aa3e0.png",
+        "precio_antes_impuesto": 36158,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8576071948342221
+    },
+    "8163102631": {
+        "nombre": "Frank Williams",
+        "stock": 303,
+        "url_img": "https://49744fd671a24c35913b980979fc90b2.png",
+        "precio_antes_impuesto": 30536,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8400644120863697
+    },
+    "19131398585": {
+        "nombre": "Bruce Bryant",
+        "stock": 386,
+        "url_img": "https://3b1507d52d9543539f16e846bca74f7e.png",
+        "precio_antes_impuesto": 21330,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.572545332428447
+    },
+    "9841997039": {
+        "nombre": "Kathy Shelton",
+        "stock": 443,
+        "url_img": "https://ec4dbfbcb4664779915130ef1ebe3739.png",
+        "precio_antes_impuesto": 32148,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7204787749438222
+    },
+    "1764976382": {
+        "nombre": "Theresa Sanders",
+        "stock": 438,
+        "url_img": "https://a580bf7fd7ae4ffbb328b3fa1629df6f.png",
+        "precio_antes_impuesto": 25164,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.39602264796882936
+    },
+    "7376881057": {
+        "nombre": "John Wells",
+        "stock": 43,
+        "url_img": "https://753cef79abbc4838b58384ada3be366b.png",
+        "precio_antes_impuesto": 20257,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.10728260590724525
+    },
+    "19801966302": {
+        "nombre": "Dale Adams",
+        "stock": 445,
+        "url_img": "https://944c7362b1244dcd87ff2897fff34641.png",
+        "precio_antes_impuesto": 41222,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.22003277445100233
+    },
+    "13232454639": {
+        "nombre": "Samuel Matthews",
+        "stock": 428,
+        "url_img": "https://bfad1a57ed114aa9ac1e43ed4a16388b.png",
+        "precio_antes_impuesto": 28133,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5902884055576694
+    },
+    "12581846887": {
+        "nombre": "Walter Johnson",
+        "stock": 130,
+        "url_img": "https://f11f0e382115404ab1328306613c7f17.png",
+        "precio_antes_impuesto": 20488,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6336766331936686
+    },
+    "15833942958": {
+        "nombre": "Bethany Wu",
+        "stock": 111,
+        "url_img": "https://f18c8f7fca4c47fc846a2c0d8bb1883b.png",
+        "precio_antes_impuesto": 30678,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6705231748417131
+    },
+    "12067288521": {
+        "nombre": "Wesley Baker",
+        "stock": 257,
+        "url_img": "https://47e47d102f7643a2a3160a314122e383.png",
+        "precio_antes_impuesto": 21491,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9107364203095027
+    },
+    "12918960457": {
+        "nombre": "Brittany Garza",
+        "stock": 345,
+        "url_img": "https://c6e63b29eb044e78b790ab63d8570e29.png",
+        "precio_antes_impuesto": 42755,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9295251830260328
+    },
+    "13711543648": {
+        "nombre": "John Martinez",
+        "stock": 455,
+        "url_img": "https://80ef4416d0d04b63acf96a2f64a43e09.png",
+        "precio_antes_impuesto": 48819,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.45696500552401864
+    },
+    "16704047340": {
+        "nombre": "Michelle Aguirre",
+        "stock": 99,
+        "url_img": "https://fafd1bf23340475cad0ca990bf71e2cf.png",
+        "precio_antes_impuesto": 35443,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7242292132655941
+    },
+    "1130102111": {
+        "nombre": "Richard Lewis",
+        "stock": 292,
+        "url_img": "https://29413855684a4be48fd1bcbc1af2b79f.png",
+        "precio_antes_impuesto": 36728,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8730325954694087
+    },
+    "14898194171": {
+        "nombre": "Joshua Smith",
+        "stock": 131,
+        "url_img": "https://b8662e264f254d0fbe7d745310b2db84.png",
+        "precio_antes_impuesto": 35392,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7847629314426877
+    },
+    "11613567258": {
+        "nombre": "Michele Hayes MD",
+        "stock": 271,
+        "url_img": "https://f9b989b3930a4d53aa30571d33fb7624.png",
+        "precio_antes_impuesto": 37271,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9882151345708583
+    },
+    "17771029654": {
+        "nombre": "Becky Randall",
+        "stock": 79,
+        "url_img": "https://ba19cc75e8bb4a259778f35f89c2492e.png",
+        "precio_antes_impuesto": 45079,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.837418208428743
+    },
+    "12290169652": {
+        "nombre": "Matthew Terry",
+        "stock": 394,
+        "url_img": "https://601b079a528641ac8c37e76ccc177860.png",
+        "precio_antes_impuesto": 49180,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.0571352018485064
+    },
+    "3893116371": {
+        "nombre": "Kevin Hensley",
+        "stock": 173,
+        "url_img": "https://ff78c105a07342c0a4aab42bc3450ab0.png",
+        "precio_antes_impuesto": 45142,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.36604810805796806
+    },
+    "19598255402": {
+        "nombre": "Sarah Gould DVM",
+        "stock": 86,
+        "url_img": "https://9802e3bb2f1f477b9f94b9201045c06a.png",
+        "precio_antes_impuesto": 22909,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7947887075572415
+    },
+    "15099538826": {
+        "nombre": "Lonnie Lewis",
+        "stock": 458,
+        "url_img": "https://edc1d0453a224dbeb07b700b41c67c90.png",
+        "precio_antes_impuesto": 47755,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6975875718711131
+    },
+    "6038184212": {
+        "nombre": "Patricia Howell",
+        "stock": 392,
+        "url_img": "https://50419f98fd1344d9b1a7f06dcd555b66.png",
+        "precio_antes_impuesto": 36782,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.08477112743000059
+    },
+    "9941300633": {
+        "nombre": "Jesus Waller",
+        "stock": 37,
+        "url_img": "https://242ed5c081474fd08ecbdb6b13695d21.png",
+        "precio_antes_impuesto": 44158,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.070403916849059
+    },
+    "11626448930": {
+        "nombre": "Stephanie Palmer",
+        "stock": 154,
+        "url_img": "https://9c3848eaead2414bb5fec0aabd69bc44.png",
+        "precio_antes_impuesto": 29600,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.09804510023355628
+    },
+    "5167904147": {
+        "nombre": "Brian Farrell",
+        "stock": 325,
+        "url_img": "https://777225e727ea40438e948baced88ea01.png",
+        "precio_antes_impuesto": 45276,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8408098036834512
+    },
+    "15872044816": {
+        "nombre": "Christopher Nelson",
+        "stock": 450,
+        "url_img": "https://d37b16f9ab774172a84d9f466159503d.png",
+        "precio_antes_impuesto": 33854,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.27748046936688786
+    },
+    "14218161152": {
+        "nombre": "David Brown",
+        "stock": 483,
+        "url_img": "https://1866d0b3f61b4cad83c903ff4f8d807a.png",
+        "precio_antes_impuesto": 37726,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.10863267633895479
+    },
+    "18855033937": {
+        "nombre": "Lee Wilcox",
+        "stock": 273,
+        "url_img": "https://172ed13291b8466cb50022316460fa0f.png",
+        "precio_antes_impuesto": 30308,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.2527609063401707
+    },
+    "12752204115": {
+        "nombre": "Stephanie Gonzales",
+        "stock": 105,
+        "url_img": "https://b9f42c6ab80f40458d7d44ab380e7769.png",
+        "precio_antes_impuesto": 24769,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.4881274946056102
+    },
+    "17368968865": {
+        "nombre": "Anthony Craig",
+        "stock": 25,
+        "url_img": "https://a75db689cb384845b07b140a252821a7.png",
+        "precio_antes_impuesto": 41537,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6652485623033686
+    },
+    "4962571711": {
+        "nombre": "Mary Young",
+        "stock": 308,
+        "url_img": "https://2beb47c35f6a4d1a9ae8c1d3d0e61ff2.png",
+        "precio_antes_impuesto": 48738,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9064561566702503
+    },
+    "19389999259": {
+        "nombre": "Whitney Jones",
+        "stock": 380,
+        "url_img": "https://dc85286988ca451980758afd258a135f.png",
+        "precio_antes_impuesto": 32960,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.11035640120212542
+    },
+    "1312591420": {
+        "nombre": "Dustin Douglas",
+        "stock": 243,
+        "url_img": "https://72297741bb0a4e82a074a33f0638c015.png",
+        "precio_antes_impuesto": 21678,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7584528270201878
+    },
+    "4374081337": {
+        "nombre": "Jerry Smith",
+        "stock": 158,
+        "url_img": "https://0f2af94188ec4b0c80567bec8d1e3259.png",
+        "precio_antes_impuesto": 29013,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5500759682275058
+    },
+    "10115820675": {
+        "nombre": "Lauren Willis",
+        "stock": 169,
+        "url_img": "https://80d712ec98204d719e31d6a3c891234c.png",
+        "precio_antes_impuesto": 43340,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5323035824885298
+    },
+    "8715506809": {
+        "nombre": "Miranda Green",
+        "stock": 29,
+        "url_img": "https://73ae8e8239ee4478a5eaee9321ff9692.png",
+        "precio_antes_impuesto": 21936,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.1618497029844297
+    },
+    "11343672371": {
+        "nombre": "Andrew Riley",
+        "stock": 150,
+        "url_img": "https://441f835fac2a442d81df69aa46d115fe.png",
+        "precio_antes_impuesto": 29463,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.2836040600011236
+    },
+    "19235493959": {
+        "nombre": "Daniel Walker",
+        "stock": 159,
+        "url_img": "https://f46349eefd844e75a1b0a748fb1501f3.png",
+        "precio_antes_impuesto": 34264,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.49244707639364116
+    },
+    "8227265292": {
+        "nombre": "Jason Johnson",
+        "stock": 432,
+        "url_img": "https://7127af7f41e34556a1987ba48e2af211.png",
+        "precio_antes_impuesto": 22576,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9981496848366453
+    },
+    "1243258686": {
+        "nombre": "Nancy Gray",
+        "stock": 457,
+        "url_img": "https://3203f721d27140f3b27035037415f40e.png",
+        "precio_antes_impuesto": 45058,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.37624934432241963
+    },
+    "8057838666": {
+        "nombre": "Cynthia Vasquez",
+        "stock": 90,
+        "url_img": "https://2e5074ddbdfa49e683374dfa17280bce.png",
+        "precio_antes_impuesto": 48133,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7351105152507522
+    },
+    "8323004293": {
+        "nombre": "Denise Mcdonald",
+        "stock": 334,
+        "url_img": "https://ba80881027d44fe893d974b67de47d6f.png",
+        "precio_antes_impuesto": 29456,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.29717537745975176
+    },
+    "12472434082": {
+        "nombre": "Hunter Mann",
+        "stock": 136,
+        "url_img": "https://ebd58c40d79446b5ae9f0dfbfd6df775.png",
+        "precio_antes_impuesto": 49824,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.1942990493552551
+    },
+    "4119740526": {
+        "nombre": "John Allen",
+        "stock": 459,
+        "url_img": "https://ebdcc803fd1641208e95e48a301963a8.png",
+        "precio_antes_impuesto": 35383,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.21872087210163016
+    },
+    "19469750320": {
+        "nombre": "Alejandra Martinez MD",
+        "stock": 243,
+        "url_img": "https://5af2a085f0a540df82d5be606afcc53a.png",
+        "precio_antes_impuesto": 22198,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9152594789627078
+    },
+    "15539420023": {
+        "nombre": "Leah Curry",
+        "stock": 482,
+        "url_img": "https://35db4c751ebd42d6bc03a33b2a11967d.png",
+        "precio_antes_impuesto": 31909,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.10466624109557732
+    },
+    "10273724203": {
+        "nombre": "Rebecca Green",
+        "stock": 26,
+        "url_img": "https://2a83318d52834bdaae41929ddc4c2a11.png",
+        "precio_antes_impuesto": 21397,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.33812979221520423
+    },
+    "5768595642": {
+        "nombre": "Austin Davidson",
+        "stock": 69,
+        "url_img": "https://0788082cc2254cbeb686d20d81cc3819.png",
+        "precio_antes_impuesto": 21162,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.3633721408581284
+    },
+    "13804642901": {
+        "nombre": "Jonathan Carroll",
+        "stock": 221,
+        "url_img": "https://e8bdcebdf96c4b8f83d93e28155194be.png",
+        "precio_antes_impuesto": 21309,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.14141650649214266
+    },
+    "8238836875": {
+        "nombre": "Sabrina Scott",
+        "stock": 480,
+        "url_img": "https://44a2b48144fc476fb95267e0cc4773e6.png",
+        "precio_antes_impuesto": 39589,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5469905653208117
+    },
+    "3542884861": {
+        "nombre": "Jason Carlson",
+        "stock": 383,
+        "url_img": "https://8d534af6f7b8439d9a5bc931455ce1a5.png",
+        "precio_antes_impuesto": 21293,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.39998032781539916
+    },
+    "13254921907": {
+        "nombre": "James Williams",
+        "stock": 297,
+        "url_img": "https://4b6af675fcd849b386b1ff61cbcb6bf2.png",
+        "precio_antes_impuesto": 24562,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.17667214376065743
+    },
+    "4207919304": {
+        "nombre": "Theresa Jordan",
+        "stock": 146,
+        "url_img": "https://57e500f5886b4ea9b7957e8d366849c3.png",
+        "precio_antes_impuesto": 39574,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5762254589651264
+    },
+    "12586937948": {
+        "nombre": "Haley Hill",
+        "stock": 222,
+        "url_img": "https://e3279c5ff4e64055bb18aa9a6c317b0b.png",
+        "precio_antes_impuesto": 33735,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7817828882508717
+    },
+    "10947604663": {
+        "nombre": "Donald Jones",
+        "stock": 380,
+        "url_img": "https://7e61a33577944054aec7a006d3794751.png",
+        "precio_antes_impuesto": 31780,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7226590318917719
+    },
+    "16310585574": {
+        "nombre": "Daniel Washington",
+        "stock": 56,
+        "url_img": "https://cb3063528aba466c82692060dfc5bce1.png",
+        "precio_antes_impuesto": 46581,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7722054323798023
+    },
+    "16171889517": {
+        "nombre": "Jordan Johnson",
+        "stock": 48,
+        "url_img": "https://9c2b439260bd4a67b2a27ca883e2f068.png",
+        "precio_antes_impuesto": 22464,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.02827697732863621
+    },
+    "12883395842": {
+        "nombre": "James Wilson",
+        "stock": 119,
+        "url_img": "https://14be1d2a4d954c0993d9ef5c9a5904d7.png",
+        "precio_antes_impuesto": 36125,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.37725700995974376
+    },
+    "18595210050": {
+        "nombre": "Keith Fuller",
+        "stock": 53,
+        "url_img": "https://20e014d88c464068b90f96c011903f45.png",
+        "precio_antes_impuesto": 45004,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.3753858539895225
+    },
+    "8711785276": {
+        "nombre": "Colleen Barber",
+        "stock": 174,
+        "url_img": "https://fafbc24a9096414b92d4563d5be721f7.png",
+        "precio_antes_impuesto": 26307,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.40193459777366514
+    },
+    "6018944673": {
+        "nombre": "Emily Young",
+        "stock": 294,
+        "url_img": "https://335f1b5bd3704991bca4aea004a88ad3.png",
+        "precio_antes_impuesto": 23206,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.6730591174481009
+    },
+    "13837028758": {
+        "nombre": "Jill Duncan",
+        "stock": 141,
+        "url_img": "https://88c4ff99e94b42bbb7da338e4b652b33.png",
+        "precio_antes_impuesto": 44600,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.20473091936021703
+    },
+    "13873194912": {
+        "nombre": "Veronica Buchanan",
+        "stock": 418,
+        "url_img": "https://16730b10a88f48939deab53a007efe4b.png",
+        "precio_antes_impuesto": 39419,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5847522520542324
+    },
+    "18924591645": {
+        "nombre": "William Anderson",
+        "stock": 165,
+        "url_img": "https://f07f8c41a74b40f58048e6a77d0dc8eb.png",
+        "precio_antes_impuesto": 25832,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.1347427368704427
+    },
+    "5406055123": {
+        "nombre": "Natalie Ward",
+        "stock": 499,
+        "url_img": "https://fcac39eab62545e49530e3cc8f41553b.png",
+        "precio_antes_impuesto": 20794,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.01473586580823727
+    },
+    "3384984428": {
+        "nombre": "Karen Alexander",
+        "stock": 348,
+        "url_img": "https://f2322bdb522b40ca881663ca87731eac.png",
+        "precio_antes_impuesto": 26804,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.8689073911039182
+    },
+    "13196495432": {
+        "nombre": "Michelle Graves MD",
+        "stock": 88,
+        "url_img": "https://954b9e931c6a414fa9884c5cfcbcf92e.png",
+        "precio_antes_impuesto": 46745,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.7504714835325892
+    },
+    "6292972945": {
+        "nombre": "Jennifer Sanchez",
+        "stock": 70,
+        "url_img": "https://9c4e591db53a486480dd6272b3cce8af.png",
+        "precio_antes_impuesto": 28780,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.1456959856866712
+    },
+    "1908160122": {
+        "nombre": "Charles Anderson",
+        "stock": 266,
+        "url_img": "https://a69c672490ad4a8d8ada63aba60e7e2c.png",
+        "precio_antes_impuesto": 46929,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.9844778700134931
+    },
+    "3576233988": {
+        "nombre": "Randy Hinton",
+        "stock": 304,
+        "url_img": "https://f9e23688f4ce451396b1fb183b501282.png",
+        "precio_antes_impuesto": 46228,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.38965818071083846
+    },
+    "10107011513": {
+        "nombre": "Courtney Thomas",
+        "stock": 59,
+        "url_img": "https://04e4a989f3cc4f53a8a57d0e8ad5d8e0.png",
+        "precio_antes_impuesto": 40013,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.3560020283074188
+    },
+    "5073604235": {
+        "nombre": "Michael Smith",
+        "stock": 281,
+        "url_img": "https://ddad460f1c0444a381ec77a3989e89b6.png",
+        "precio_antes_impuesto": 21968,
+        "impuesto_porcentaje": 0.19,
+        "descuento": 0.5155643849949318
     }
 }

@@ -1,4 +1,7 @@
 ## Python ignore.
+Data/datos
+Data/datos2
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
