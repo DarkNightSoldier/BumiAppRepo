@@ -112,8 +112,8 @@ def consultar_usuario():
     data["direccion"] = objeto.dato.direccion
     data["telefono"] = objeto.dato.telefono
     data["zip"] = objeto.dato.zip
-    data["pedidos"] = objeto.dato.pedidos
-    return jsonify({'status' : 200})
+    data["pedidos"] = objeto.dato.pedidos.imprimir()
+    return jsonify(data,{'status' : 200})
 
 @app.route("/api/usuario/eliminar_usuario", methods = ["POST"])
 def eliminar_usuario():
