@@ -102,18 +102,18 @@ def consultar_usuario():
     if isinstance(objeto, int): 
         return jsonify({'mensaje' : "El usuario no existe."}), 404
     data = {}
-    data["id"] = objeto.id
-    data["nombres"] = objeto.nombres
-    data["apellidos"] = objeto.apellidos
-    data["rol"] = objeto.rol
-    data["contrasena"] = objeto.contrasena
-    data["correo"] = objeto.correo
-    data["ciudad"] = objeto.ciudad
-    data["direccion"] = objeto.direccion
-    data["telefono"] = objeto.telefono
-    data["zip"] = objeto.zip
-    data["pedidos"] = objeto.pedidos
-    return jsonify({'status' : 200})
+    data["id"] = objeto.dato.id
+    data["nombres"] = objeto.dato.nombres
+    data["apellidos"] = objeto.dato.apellidos
+    data["rol"] = objeto.dato.rol
+    data["contrasena"] = objeto.dato.contrasena
+    data["correo"] = objeto.dato.correo
+    data["ciudad"] = objeto.dato.ciudad
+    data["direccion"] = objeto.dato.direccion
+    data["telefono"] = objeto.dato.telefono
+    data["zip"] = objeto.dato.zip
+    data["pedidos"] = objeto.dato.pedidos.imprimir()
+    return jsonify(data,{'status' : 200})
 
 @app.route("/api/usuario/eliminar_usuario", methods = ["POST"])
 def eliminar_usuario():
@@ -241,17 +241,6 @@ def anadir_pedido_a_funcionario():
         return jsonify({'mensaje' : "El id no existe."})
     funcionario = usuarios.buscar_nodo(id_funcionario)
     funcionario.pedidos.encolar(pedido)
-    return jsonify({'status' : 200})
-
-@app.route("/api/pedido/marcar_pedido_entregado", methods = ["POST"])
-def marcar_pedido():
-    data = request.values
-    id_funcionario = data["id_funcionario"]
-    funcionario = usuarios.buscar_nodo(id_funcionario)
-    try:
-        funcionario.pedidos.desencolar()
-    except Exception as e:
-        return jsonify({'mensaje' : str(e)})
     return jsonify({'status' : 200})
 
 if __name__ == '__main__':
