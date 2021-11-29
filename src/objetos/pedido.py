@@ -35,9 +35,9 @@ class Pedido:
         self.impuestos_productos = dicc["impuestos_productos"]
         self.valor_descuentos = dicc["valor_descuentos"]
         self.moneda = dicc["moneda"]
-        self.subtotal = int(dicc["subtotal"])
-        self.impuestos = int(dicc["impuestos"])
-        self.total = int(dicc["total"])
+        self.subtotal = int(float(dicc["subtotal"]))
+        self.impuestos = int(float(dicc["impuestos"]))
+        self.total = int(float(dicc["total"]))
 
     def anadir_producto(self,producto,cantidad):
         self.carrito[producto.id] = {producto:producto,cantidad:cantidad}

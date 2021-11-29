@@ -55,8 +55,6 @@ def nuevo_cliente():
     cliente = Cliente(id, nombres, apellidos, contrasena, correo, ciudad, direccion, 
                     telefono, zip)
     nodo = usuarios.buscar_nodo(id)
-    if isinstance(nodo, int): 
-        jsonify({'mensaje' : "Este cliente ya existe."}), 401
     usuarios.empujar_atras(cliente)
     return jsonify({'status' : 200})
 
@@ -275,4 +273,4 @@ def limpiar_datos():
     return jsonify({'status' : 200})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
