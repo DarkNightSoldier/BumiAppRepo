@@ -28,7 +28,7 @@ class ListaEnlazadaCircularDoble():
         Retorna el dato en lista con el indicado.
         """
         if self.length == 0:
-            raise Exception("No encontrado")
+            return -1
         elif self.cabeza.dato.id == id:
             return self.cabeza
         else:
@@ -38,8 +38,8 @@ class ListaEnlazadaCircularDoble():
                 if puntero_actual.dato.id == id:
                     return puntero_actual
                     break
-            if i==self.length-2 and puntero_actual.dato.id != id:
-                raise Exception("No encontrado")
+                if i==self.length-2 and puntero_actual.dato.id != id:
+                    return -1
     
     def anadir_despues_de(self,nodo_1, dato):
         """
