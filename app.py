@@ -243,19 +243,5 @@ def anadir_pedido_a_funcionario():
     funcionario.pedidos.encolar(pedido)
     return jsonify({'status' : 200})
 
-<<<<<<< HEAD
-=======
-@app.route("/api/pedido/marcar_pedido_entregado", methods = ["POST"])
-def marcar_pedido():
-    data = request.values
-    id_funcionario = data["id_funcionario"]
-    funcionario = usuarios.buscar_nodo(id_funcionario)
-    try:
-        funcionario.pedidos.desencolar()
-    except Exception as e:
-        return jsonify({'mensaje' : str(e)})
-    return jsonify({'status' : 200})
-
->>>>>>> a9faabb71e2fe6127660f751f62e05dfc0755694
 if __name__ == '__main__':
     app.run(debug=False)

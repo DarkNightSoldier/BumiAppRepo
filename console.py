@@ -249,6 +249,10 @@ class Consola:
     def marcar_pedido_entregado(self, **kwargs):
         pass
 
+    def limpiar_datos(self):
+        res = requests.get(self.endpoint + "/api/limpiar_datos")
+        self.procesar_respuesta(res)
+
 class Consola2:
     def __init__(self, usuario = None):
         self.usuario = usuario
@@ -356,7 +360,7 @@ class Consola2:
         f.close()
         if id in posibles_usuarios:
             posibles_usuarios[id]["id"] = id
-            usuario = Usuario.crear_usuario_dicc(Usuario, posibles_usuarios[id])
+            usuario = Usuario.crear_usuario_dicc(posibles_usuarios[id])
             return usuario
         else:
             print("El usuario no existe en la base de datos.")
