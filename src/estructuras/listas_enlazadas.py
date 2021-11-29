@@ -103,7 +103,7 @@ class ListaEnlazada:
     # Search.
     def buscar_nodo(self, id):
         if self.cabeza == None:
-            return None
+            pass
         else:
             actual = self.cabeza
             while actual != None:
@@ -219,7 +219,7 @@ class ListaEnlazadaConCola(ListaEnlazada):
     # Delete using id.
     def eliminar(self, id):
         if self.cabeza == None:
-            return Exception("Lista vacía.")
+            Exception("Lista vacía.")
         if self.cabeza.dato.id == id:
             self.eliminar_adelante()
         else:

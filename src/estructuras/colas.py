@@ -104,21 +104,21 @@ class ColaArrayBased():
             raise Exception("Error, cola vacía")
 
     def peek(self):
-        if len(self.list) > 0:
+        if len(self.lista) > 0:
             return self.lista[0]
         else: 
             raise Exception("Error, cola vacía.")
 
     def obtener_indice(self, id):
         for i in range(self.lista):
-            elemento = self.list[i]
+            elemento = self.lista[i]
             if elemento.id == id:
                 return i
         return -1
 
     def buscar(self, id):
         for i in range(self.lista):
-            elemento = self.list[i]
+            elemento = self.lista[i]
             if elemento.id == id:
                 return elemento
         return -1
@@ -130,7 +130,7 @@ class ColaArrayBased():
         else: 
             copia = list()
             for i in range(self.lista):
-                elemento = self.list[i]
+                elemento = self.lista[i]
                 if elemento.id != id:
                     copia.append(elemento)
             self.lista = copia
