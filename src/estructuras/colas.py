@@ -143,7 +143,7 @@ class ColaArrayBased():
             return 1
         else: 
             raise Exception("El Id no existe.")
-    
+
     def imprimir(self):
 
         a_imprimir = ""

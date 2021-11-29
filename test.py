@@ -1,5 +1,4 @@
 from console import Consola
-import pandas as pd
 import json 
 import time
 consola = Consola()

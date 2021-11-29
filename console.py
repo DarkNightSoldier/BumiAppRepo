@@ -10,13 +10,6 @@ import time
 #welcome = pyfiglet.figlet_format("Welcome to Bumi!")
 #print(welcome)
 
-def clear():
-    # Limpia la consola
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
-
 class Consola:
     
     def __init__(self, endpoint = "http://localhost:5000"):
@@ -38,6 +31,7 @@ class Consola:
             14: self.mostrar_pedido_cola,
             15: self.anadir_pedido_funcionario,
             16: self.marcar_pedido_entregado,
+            17: self.clear,
         }
         bienvenida = pyfiglet.figlet_format("Te damos la bienvenida a Bumi!")
         print(bienvenida)
@@ -59,56 +53,66 @@ class Consola:
         print("14. Mostrar pedido en cola")
         print("15. Añadir pedido a funcionario")
         print("16. Marca pedido como entregado")
-        print("17. Salir de la consola")
+        print("17. Limpiar Consola")
+        print("18. Salir de la consola")
         print("")
         seleccion = int(input("Digite una opción: "))
         print("")
-        if seleccion != 17:
+        if seleccion != 18:
             self.opciones[seleccion]()
             self.menu()
         else: 
             print("Hasta pronto!")
 
+    def clear(self):
+        # Limpia la consola
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+
     def ingresar_info_usuario(self):
         kwargs = {}
-        kwargs["id"] = input("Digite el id del cliente")
-        kwargs["nombres"] = input("Digite el nombre del cliente")
-        kwargs["apellidos"] = input("Digite el nombre del cliente")
-        kwargs["contrasena"] = input("Digite el nombre del cliente")
-        kwargs["correo"] = input("Digite el nombre del cliente")
-        kwargs["ciudad"] = input("Digite el nombre del cliente")
-        kwargs["direccion"] = input("Digite el nombre del cliente")
-        kwargs["telefono"] = input("Digite el nombre del cliente")
-        kwargs["zip"] = input("Digite el nombre del cliente")
+        kwargs["id"] = input("Digite el id del cliente: ")
+        kwargs["nombres"] = input("Digite el nombre del cliente: ")
+        kwargs["apellidos"] = input("Digite el apellidos del cliente: ")
+        kwargs["contrasena"] = input("Digite el contrasena del cliente: ")
+        kwargs["correo"] = input("Digite el correo del cliente: ")
+        kwargs["ciudad"] = input("Digite el ciudad del cliente: ")
+        kwargs["direccion"] = input("Digite el direccion del cliente: ")
+        kwargs["telefono"] = input("Digite el telefono del cliente: ")
+        kwargs["zip"] = input("Digite el zip del cliente: ")
         return kwargs
 
     def ingresar_info_articulo(self):
         kwargs = {}
-        kwargs["id"] = input("Digite el Id del artículo")
-        kwargs["nombre"] = input("Digite el nombre del artículo")
-        kwargs["stock"] = input("Digite el stock del artículo")
-        kwargs["url_img"] = input("Digite url de la imagen del artículo")
-        kwargs["precio_antes_impuesto"] = input("Digite el precio antes de impuestos")
-        kwargs["impuesto_porcentaje"] = input("Digite el porcentaje a pagar en impuestos")
-        kwargs["descuento"] = input("Digite el descuento del artículo")
+        kwargs["id"] = input("Digite el Id del artículo: ")
+        kwargs["nombre"] = input("Digite el nombre del artículo: ")
+        kwargs["stock"] = input("Digite el stock del artículo: ")
+        kwargs["url_img"] = input("Digite url de la imagen del artículo: ")
+        kwargs["precio_antes_impuesto"] = input("Digite el precio antes de impuestos: ")
+        kwargs["impuesto_porcentaje"] = input("Digite el porcentaje a pagar en impuestos: ")
+        kwargs["descuento"] = input("Digite el descuento del artículo: ")
+        return kwargs
 
     def ingresar_info_pedido(self):
         kwargs = {}
-        kwargs["id"] = input("Digite el Id del pedido")
-        kwargs["id_cliente"] = input("Digite el Id del cliente")
+        kwargs["id"] = input("Digite el Id del pedido: ")
+        kwargs["id_cliente"] = input("Digite el Id del cliente: ")
         kwargs["pedido_padre"] = kwargs["id"]
-        kwargs["id_conductor"] = input("Digite el id del conductor")
-        kwargs["estado"] = input("Digite el estado del pedido")
-        kwargs["frecuencia"] = input("Digite la frecuencia del pedido")
-        kwargs["productos"] = input("Digite los productos")
-        kwargs["cantidades"] = input("Digite las cantidades")
-        kwargs["valor_producto_sin_impuestos"] = input("Digite el valor de los productos sin impuesto")
-        kwargs["impuestos_productos"] = input("Digite los impuestos de los productos")
-        kwargs["valor_descuentos"] = input("Digite el valor de los descuentos")
-        kwargs["moneda"] = input("Digite la moneda del pedido")
-        kwargs["subtotal"] = input("Digite el subtotal del pedido")
-        kwargs["impuestos"] = input("Digite los impuestos del pedido")
-        kwargs["total"] = input("Digite el total del pedido")
+        kwargs["id_conductor"] = input("Digite el id del conductor: ")
+        kwargs["estado"] = input("Digite el estado del pedido: ")
+        kwargs["frecuencia"] = input("Digite la frecuencia del pedido: ")
+        kwargs["productos"] = input("Digite los productos: ")
+        kwargs["cantidades"] = input("Digite las cantidades: ")
+        kwargs["valor_producto_sin_impuestos"] = input("Digite el valor de los productos sin impuesto: ")
+        kwargs["impuestos_productos"] = input("Digite los impuestos de los productos: ")
+        kwargs["valor_descuentos"] = input("Digite el valor de los descuentos: ")
+        kwargs["moneda"] = input("Digite la moneda del pedido: ")
+        kwargs["subtotal"] = input("Digite el subtotal del pedido: ")
+        kwargs["impuestos"] = input("Digite los impuestos del pedido: ")
+        kwargs["total"] = input("Digite el total del pedido: ")
+        return kwargs
 
     def procesar_respuesta(self, res):
         if res.status_code != 200: 
@@ -138,16 +142,16 @@ class Consola:
     def actualizar_usuario(self, **kwargs):
         if len(kwargs.items()) == 0:
             kwargs = {}
-            kwargs["id"] = input("Digite el id del usuario")
-            kwargs["atributo"] = input("Digite el nombre del atributo a modificar")
-            kwargs["valor"] = input("Digite el nuevo valor del atributo")
+            kwargs["id"] = input("Digite el id del usuario: ")
+            kwargs["atributo"] = input("Digite el nombre del atributo a modificar: ")
+            kwargs["valor"] = input("Digite el nuevo valor del atributo: ")
         res = requests.post(self.endpoint + "/api/usuario/actualizar_usuario", kwargs)
         self.procesar_respuesta(res)
 
     # Consultar usuario.
     def consultar_usuario(self, **kwargs):
         if len(kwargs.items()) == 0:
-            kwargs["id"] = input("Digite el id del usuario.")
+            kwargs["id"] = input("Digite el id del usuario: ")
         res = requests.post(self.endpoint + "/api/usuario/consultar_usuario", kwargs)
         status = self.procesar_respuesta(res)
         if status == 200:
@@ -158,7 +162,7 @@ class Consola:
     # Eliminar usuario.
     def eliminar_usuario(self, **kwargs):
         if len(kwargs.items()) == 0:
-            kwargs["id"] = input("Digite el id del usuario.")
+            kwargs["id"] = input("Digite el id del usuario: ")
         res = requests.post(self.endpoint + "/api/usuario/eliminar_usuario", kwargs)
         self.procesar_respuesta(res)
 
@@ -173,16 +177,16 @@ class Consola:
     def actualizar_articulo(self, **kwargs):
         if len(kwargs.items()) == 0:
             kwargs = {}
-            kwargs["id"] = input("Digite el id del usuario")
-            kwargs["atributo"] = input("Digite el nombre del atributo a modificar")
-            kwargs["valor"] = input("Digite el nuevo valor del atributo")
+            kwargs["id"] = input("Digite el id del articulo:")
+            kwargs["atributo"] = input("Digite el nombre del atributo a modificar: ")
+            kwargs["valor"] = input("Digite el nuevo valor del atributo: ")
         res = requests.post(self.endpoint + "/api/articulo/actualizar_articulo", kwargs)
         self.procesar_respuesta(res)
 
     # Consultar artículo.
     def consultar_articulo(self, **kwargs):
         if len(kwargs.items()) == 0:
-            kwargs["id"] = input("Digite el id del artículo.")
+            kwargs["id"] = input("Digite el id del artículo: ")
         res = requests.post(self.endpoint + "/api/articulo/consultar_articulo", kwargs)
         status = self.procesar_respuesta(res)
         if status == 200:
@@ -193,11 +197,11 @@ class Consola:
     # Eliminar artículo.
     def eliminar_articulo(self, **kwargs):
         if len(kwargs.items()) == 0:
-            kwargs["id"] = input("Digite el id del artíuclo.")
+            kwargs["id"] = input("Digite el id del artículo: ")
         res = requests.post(self.endpoint + "/api/articulo/eliminar_articulo", kwargs)
         self.procesar_respuesta(res)
 
-    # Crear pedido.
+    # Crear pe17dido.
     def crear_pedido(self, **kwargs):
         if len(kwargs.items()) == 0:
             kwargs = self.ingresar_info_pedido()
@@ -207,7 +211,7 @@ class Consola:
     # Consultar pedido.
     def consultar_pedido(self, **kwargs):
         if len(kwargs.items()) == 0:
-            kwargs["id"] = input("Digite el id del pedido.")
+            kwargs["id"] = input("Digite el id del pedido: ")
         res = requests.post(self.endpoint + "/api/pedido/consultar_pedido", kwargs)
         status = self.procesar_respuesta(res)
         if status == 200:
@@ -218,7 +222,7 @@ class Consola:
     # Eliminar pedido.
     def eliminar_pedido(self, **kwargs):
         if len(kwargs.items()) == 0:
-            kwargs["id"] = input("Digite el id del pedido.")
+            kwargs["id"] = input("Digite el id del pedido: ")
         res = requests.post(self.endpoint + "/api/pedido/eliminar_pedido", kwargs)
         self.procesar_respuesta(res)
 
@@ -226,9 +230,9 @@ class Consola:
     def actualizar_pedido(self, **kwargs):
         if len(kwargs.items()) == 0:
             kwargs = {}
-            kwargs["id"] = input("Digite el id del pedido")
-            kwargs["atributo"] = input("Digite el nombre del atributo a modificar")
-            kwargs["valor"] = input("Digite el nuevo valor del atributo")
+            kwargs["id"] = input("Digite el id del pedido: ")
+            kwargs["atributo"] = input("Digite el nombre del atributo a modificar: ")
+            kwargs["valor"] = input("Digite el nuevo valor del atributo: ")
         res = requests.post(self.endpoint + "/api/pedido/actualizar_pedido", kwargs)
         self.procesar_respuesta(res)
 
