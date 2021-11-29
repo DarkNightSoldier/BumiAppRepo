@@ -10,7 +10,7 @@ from src.objetos.pedido import Pedido
 
 articulos = ListaEnlazadaConCola()
 usuarios = ListaEnlazadaDoble()
-pedidos = ColaArrayBased()
+pedidos = ListaEnlazadaDoble()
 
 # Ini app.
 app = Flask(__name__)
@@ -91,7 +91,7 @@ def actualizar_usuario():
     nodo = usuarios.buscar_nodo(id)
     if isinstance(nodo, int): 
         return jsonify({'mensaje' : "El usuario no existe."}), 404
-    setattr(nodo, atributo, valor)
+    setattr(nodo.dato, atributo, valor)
     return jsonify({'status' : 200})
 
 @app.route("/api/usuario/consultar_usuario", methods = ["POST"])
@@ -113,7 +113,7 @@ def consultar_usuario():
     data["telefono"] = objeto.dato.telefono
     data["zip"] = objeto.dato.zip
     data["pedidos"] = objeto.dato.pedidos.imprimir()
-    return jsonify(data,{'status' : 200})
+    return jsonify(data), 200
 
 @app.route("/api/usuario/eliminar_usuario", methods = ["POST"])
 def eliminar_usuario():
@@ -121,8 +121,8 @@ def eliminar_usuario():
     id = int(data["id"])
     try:
         usuarios.eliminar(id)
-    except Exception as e: 
-        return jsonify({'error' : str(e)}), 401
+    except: 
+        return jsonify({'status' : 401})
     return jsonify({'status' : 200})
 
 @app.route("/api/articulo/crear_nuevo_articulo", methods = ["POST"])
@@ -145,22 +145,22 @@ def crear_nuevo_articulo():
 @app.route("/api/articulo/actualizar_articulo", methods = ["POST"])
 def actualizar_articulo():
     data = request.values
-    id = data["id"]
+    id = int(data["id"])
     atributo = data["atributo"]
     valor = data["valor"]
     objeto = articulos.buscar_nodo(id)
     if isinstance(objeto, int): 
         return jsonify({'mensaje' : "El artículo no existe."}), 404
-    setattr(objeto, atributo, valor)
+    setattr(objeto.dato, atributo, valor)
     return jsonify({'status' : 200})
 
 @app.route("/api/articulo/consultar_articulo", methods = ["POST"])
 def consultar_articulo():
     data = request.values
-    id = data["id"]
+    id = int(data["id"])
     objeto = articulos.buscar_nodo(id)
     if isinstance(objeto, int): 
-        return jsonify({'mensaje' : "El usuario no existe."}), 404
+        return jsonify({'mensaje' : "El artículo no existe."}), 404
     data = {}
     data["id"] = objeto.dato.id
     data["nombre"] = objeto.dato.nombre
@@ -174,7 +174,7 @@ def consultar_articulo():
 @app.route("/api/articulo/eliminar_articulo", methods = ["POST"])
 def eliminar_articulo():
     data = request.values
-    id = data["id"]
+    id = int(data["id"])
     try:
         articulos.eliminar(id)
     except Exception as e: 
@@ -184,63 +184,93 @@ def eliminar_articulo():
 @app.route("/api/pedido/crear_pedido", methods = ["POST"])
 def crear_pedido():
     data = request.values
-    id_pedido = data["id"]
-    id_cliente = data["id_cliente"]
+    id_pedido = int(data["id"])
+    id_cliente = int(data["id_cliente"])
     pedido = Pedido(id_pedido, id_cliente)
     pedido.cargar_desde_diccionario(data)
-    pedidos.encolar(pedido)
+    pedidos.empujar_atras(pedido)
     return jsonify({'status' : 200})
 
 @app.route("/api/pedido/consultar_pedido", methods = ["POST"])
 def consultar_pedido():
     data = request.values
-    id = data["id"]
-    pedido = pedidos.buscar(id)
+    id = int(data["id"])
+    pedido = pedidos.buscar_nodo(id)
     if isinstance(pedido, int):
         return jsonify({'mensaje' : "Id no encontrado."}), 404
-    datos = pedido.obtener_informacion()
+    datos = pedido.dato.obtener_informacion()
     return jsonify({'datos' : datos})
 
 @app.route("/api/pedido/eliminar_pedido", methods = ["POST"])
 def eliminar_pedido():
     data = request.values
-    id = data["id"]
+    id = int(data["id"])
     try:
         pedidos.eliminar(id)
-        return jsonify({'status' : 200}), 200
     except Exception as e: 
-        return jsonify({'status' : str(e)}), 404
+        return jsonify({'error' : str(e)}), 401
+    return jsonify({'status' : 200})
+
 
 @app.route("/api/pedido/actualizar_pedido", methods = ["POST"])
 def actualizar_pedido():
     data = request.values
-    id = data["id"]
+    id = int(data["id"])
     atributo = data["atributo"]
     valor = data["valor"]
-    try:
-        pedidos.actualizar_elemento(id, atributo, valor)
-    except Exception as e: 
-        return jsonify({"mensaje": str(e)}), 404
+    objeto = pedidos.buscar_nodo(id)
+    if isinstance(objeto, int): 
+        return jsonify({'mensaje' : "El pedido no existe."}), 404
+    setattr(objeto.dato, atributo, valor)
+    return jsonify({'status' : 200})
 
-@app.route("/api/pedido/mostrar_pedido_en_cola", methods = ["GET"])
+@app.route("/api/pedido/mostrar_pedido_en_cola", methods = ["POST"])
 def mostrar_pedido_en_cola():
+    data = request.values
+    id = int(data["id_funcionario"])
+    nodo_conductor = usuarios.buscar_nodo(id)
     try:
-        pedido = pedidos.peek()
+        pedido = nodo_conductor.dato.pedidos.peek()
         datos = pedido.obtener_informacion()
         return jsonify({'datos' : datos}), 200
     except:
-        return jsonify({'status' : 400}), 404
+        return jsonify({'status' : 400}), 400
 
 @app.route("/api/pedido/anadir_pedido_a_funcionario", methods = ["POST"])
 def anadir_pedido_a_funcionario():
     data = request.values
-    id_pedido = data["id_pedido"]
-    id_funcionario = data["id_funcionario"]
-    pedido = pedidos.buscar(id_pedido)
+    id_pedido = int(data["id_pedido"])
+    id_funcionario = int(data["id_funcionario"])
+    pedido = pedidos.buscar_nodo(id_pedido)
     if isinstance(pedido, int):
         return jsonify({'mensaje' : "El id no existe."})
-    funcionario = usuarios.buscar_nodo(id_funcionario)
-    funcionario.pedidos.encolar(pedido)
+    funcionario = usuarios.buscar_nodo(int(id_funcionario)).dato
+    funcionario.pedidos.encolar(pedido.dato)
+    return jsonify({'status' : 200})
+
+#Desencola y marca el pedido como entregado/no entregado
+@app.route("/api/pedido/marcar_pedido", methods = ["POST"])
+def marcar_pedido():
+    data = request.values
+    id_funcionario = int(data["id_funcionario"])
+    valor = data["valor"]
+    nodo_conductor = usuarios.buscar_nodo(id_funcionario)
+    try:
+        pedido = nodo_conductor.dato.pedidos.peek()
+        pedido_en_lista = pedidos.buscar_nodo(pedido.id)
+        if isinstance(pedido_en_lista, int): 
+            return jsonify({'mensaje' : "El pedido no existe."}), 404
+        setattr(pedido_en_lista.dato,"estado", valor)
+        dato_pedido = nodo_conductor.dato.pedidos.desencolar()
+        return jsonify({'status' : 200})
+    except:
+        return jsonify({'status' : 400}), 400
+
+@app.route("/api/limpiar_datos", methods = ["GET"])
+def limpiar_datos():
+    articulos = ListaEnlazadaConCola()
+    usuarios = ListaEnlazadaDoble()
+    pedidos = ListaEnlazadaDoble()
     return jsonify({'status' : 200})
 
 if __name__ == '__main__':
