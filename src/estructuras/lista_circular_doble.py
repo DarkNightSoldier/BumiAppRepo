@@ -1,5 +1,4 @@
-from usuario import Usuario
-from listas_enlazadas import NodoBidirecional as Nodo
+from .listas_enlazadas import NodoBidirecional as Nodo
 
 #Esta lista enlazada circular doble posee orden decreciente respecto al id
 class ListaEnlazadaCircularDoble():

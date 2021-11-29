@@ -1,1 +1,1 @@
-from .estructuras.Lista import LinkedList, DoubleLinkedList, LinkedListTail, DoubleLinkedListTail
+from .estructuras.listas_enlazadas import ListaEnlazada,ListaEnlazadaConCola,ListaEnlazadaDoble

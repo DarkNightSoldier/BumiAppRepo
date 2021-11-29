@@ -1,7 +1,7 @@
 import pandas
 import time
-from IPython import display
 import matplotlib.pyplot as plt
+import requests
 
 class RegistrodeTiempos:
 
@@ -36,3 +36,6 @@ class RegistrodeTiempos:
         plt.ylabel("Tiempo (segundos)")
         plt.savefig("asintotico/{}.png".format(self.nombre_funcionalidad))
 
+if __name__=="__main__":
+    #Carga de datos
+    
