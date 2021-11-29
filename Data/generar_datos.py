@@ -1,44 +1,3 @@
-def ingresar_info_usuario(self):
-    kwargs = {}
-    kwargs["id"] = input("Digite el id del cliente")
-    kwargs["nombres"] = input("Digite el nombre del cliente")
-    kwargs["apellidos"] = input("Digite el nombre del cliente")
-    kwargs["contrasena"] = input("Digite el nombre del cliente")
-    kwargs["correo"] = input("Digite el nombre del cliente")
-    kwargs["ciudad"] = input("Digite el nombre del cliente")
-    kwargs["direccion"] = input("Digite el nombre del cliente")
-    kwargs["telefono"] = input("Digite el nombre del cliente")
-    kwargs["zip"] = input("Digite el nombre del cliente")
-    return kwargs
-
-def ingresar_info_articulo(self):
-    kwargs = {}
-    kwargs["id"] = input("Digite el Id del artículo")
-    kwargs["nombre"] = input("Digite el nombre del artículo")
-    kwargs["stock"] = input("Digite el stock del artículo")
-    kwargs["url_img"] = input("Digite url de la imagen del artículo")
-    kwargs["precio_antes_impuesto"] = input("Digite el precio antes de impuestos")
-    kwargs["impuesto_porcentaje"] = input("Digite el porcentaje a pagar en impuestos")
-    kwargs["descuento"] = input("Digite el descuento del artículo")
-
-def ingresar_info_pedido(self):
-    kwargs = {}
-    kwargs["id"] = input("Digite el Id del pedido")
-    kwargs["id_cliente"] = input("Digite el Id del cliente")
-    kwargs["pedido_padre"] = kwargs["id"]
-    kwargs["id_conductor"] = input("Digite el id del conductor")
-    kwargs["estado"] = input("Digite el estado del pedido")
-    kwargs["frecuencia"] = input("Digite la frecuencia del pedido")
-    kwargs["productos"] = input("Digite los productos")
-    kwargs["cantidades"] = input("Digite las cantidades")
-    kwargs["valor_producto_sin_impuestos"] = input("Digite el valor de los productos sin impuesto")
-    kwargs["impuestos_productos"] = input("Digite los impuestos de los productos")
-    kwargs["valor_descuentos"] = input("Digite el valor de los descuentos")
-    kwargs["moneda"] = input("Digite la moneda del pedido")
-    kwargs["subtotal"] = input("Digite el subtotal del pedido")
-    kwargs["impuestos"] = input("Digite los impuestos del pedido")
-    kwargs["total"] = input("Digite el total del pedido")
-
 from faker import Faker
 import random
 import numpy as np 
@@ -66,7 +25,7 @@ def generar_articulo():
     datos["stock"] = random.randrange(10, 500)
     datos["url_img"] = "https://" + u.hex + ".png"
     datos["precio_antes_impuesto"] = random.randrange(20000, 50000)
-    datos["impuest_porcentaje"] = 0.19
+    datos["impuesto_porcentaje"] = 0.19
     datos["descuento"] = random.random()
     return datos
 
@@ -91,9 +50,9 @@ def generar_pedido(id_pedido, id_cliente, id_funcionario):
     return datos
 
 def generar_id(ids: List):
-    id = random.randrange(100000000, 200000000)
+    id = random.randrange(1000000000, 20000000000)
     while id in ids: 
-        id = random.randrange(100000000, 200000000)
+        id = random.randrange(1000000000, 20000000000)
     ids.append(id)
     return ids, id
 
@@ -116,7 +75,7 @@ def guardar_datos(filename, datos, folder = "./"):
         json.dump(datos, fp)
 
 if __name__ == '__main__':
-    num_data = 10
+    num_data = 100000
 
     clientes = {}
     funcionarios = {}
@@ -125,24 +84,23 @@ if __name__ == '__main__':
     
     # Generar datos.
     clientes, ids_clientes = generar_datos(num_data, generar_usuario)
+    guardar_datos("clientes.json", clientes, folder = "./datos2/")
+    clientes = {}
 
-    funcionarios, ids_funcionarios = generar_datos(num_data, generar_usuario, optional_list = ids_clientes)
+    funcionarios, ids_funcionarios = generar_datos(1, generar_usuario, optional_list = ids_clientes)
+    guardar_datos("funcionarios.json", funcionarios, folder = "./datos2/")
+    funcionarios = {}
+
     ids_funcionarios = list(set(ids_funcionarios) - set(ids_clientes))
     articulos, ids_articulos = generar_datos(num_data, generar_articulo)
+    guardar_datos("articulos.json", articulos, folder = "./datos2/")
+    articulos = {}
 
     for i in range(num_data):
         id_random_cliente = int(np.random.choice(ids_clientes))
         id_random_funcionario = int(np.random.choice(ids_funcionarios))
-        id_pedido = random.randrange(1000000, 2000000)
+        id_pedido = random.randrange(100000000, 2000000000)
         pedido = generar_pedido(id_pedido, id_random_cliente, id_random_funcionario)
         pedidos[id_pedido] = pedido
-
-    # Guardar datos.
-    guardar_datos("clientes.json", clientes, folder = "./datos/")
-    guardar_datos("funcionarios.json", funcionarios, folder = "./datos/")
-    guardar_datos("articulos.json", articulos, folder = "./datos/")
-    guardar_datos("pedidos.json", pedidos, folder = "./datos/")
-
-    print(pedidos)
-
-    #print("Hola mundo")
+    guardar_datos("pedidos.json", pedidos, folder = "./datos2/")
+    pedidos = {}
