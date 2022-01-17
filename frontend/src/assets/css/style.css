@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Codec pro", Codec pro;
   color: #444444;
 }
 
@@ -24,7 +24,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Codec pro", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -86,22 +86,25 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   padding: 16px 30px 12px 30px;
   background: #009970;
+  font-family: "Codec Pro";
 }
 #header .logo h1 {
   font-size: 26px;
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Codec Pro";
 }
 #header .logo h1 a, #header .logo h1 a:hover {
   color: #fff;
   text-decoration: none;
+  font-family: "Codec Pro";
 }
 #header .logo img {
   padding: 0;
   margin: 0;
   max-height: 40px;
+  font-family: "Codec Pro";
 }
 @media (max-width: 992px) {
   #header {
@@ -149,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Codec Pro"; 
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -347,12 +350,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 40px;
   font-size: 15px;
   font-weight: 500;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Codec pro";
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 #hero .btn-get-started {
-  font-family: "Poppins", sans-serif;
+  font-family: "Codec pro";
   text-transform: uppercase;
   font-weight: 500;
   font-size: 14px;
@@ -403,6 +406,7 @@ section {
   padding-bottom: 30px;
 }
 .section-title h2 {
+  font-family: "Codec pro";
   font-size: 32px;
   font-weight: bold;
   text-transform: uppercase;
@@ -487,6 +491,7 @@ section {
   color: #fff;
 }
 .counts .counters span {
+  font-family: "Codec pro";
   font-size: 36px;
   display: block;
   font-weight: 700;
@@ -494,7 +499,7 @@ section {
 .counts .counters p {
   padding: 0;
   margin: 0 0 20px 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Codec pro";
   font-size: 15px;
   font-weight: 500;
 }
