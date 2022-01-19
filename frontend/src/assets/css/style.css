@@ -667,6 +667,12 @@ section {
   list-style: none;
   text-align: center;
 }
+.portfolio h2{
+  font-size: 40px ;
+}
+.portfolio p{
+  font-size : 22px;
+}
 .portfolio #portfolio-flters li {
   cursor: pointer;
   display: inline-block;
