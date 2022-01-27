@@ -1,3 +1,5 @@
+from typing import List
+
 class Nodo:
     def __init__(self, dato = None):
         self.dato = dato
@@ -123,6 +125,19 @@ class ListaEnlazada:
                 actual = actual.siguiente
                 print(actual.dato, end = " => ")
             print(None)
+
+    def nodos(self) -> List[any]:
+        actual = self.cabeza
+        if actual == None:
+            return []
+        else:
+            nodos = list()
+            nodos.append(actual)
+            while actual.siguiente != None:
+                actual = actual.siguiente
+                nodos.append(actual)
+            return nodos
+            
 
 class ListaEnlazadaConCola(ListaEnlazada):
     def __init__(self):
