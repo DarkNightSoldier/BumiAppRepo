@@ -1,4 +1,5 @@
-from listas_enlazadas import ListaEnlazadaDoble
+
+from typing import List
 
 class HashNode:
     def __init__(self, key: any, value: any, hashCode: int) -> None:
@@ -7,19 +8,33 @@ class HashNode:
         self.next: HashNode = None
         self.hashCode = hashCode
 
+class ArrayList:
+    def __init__(self):
+        self.data: List[HashNode] = []
+
+    def add(self, value: HashNode):
+        self.data.append(value)
+
+    def get(self, index: int):
+        return self.data[index]
+
+    def set(self, index: int, value: HashNode):
+        self.data[index] = value
+
+
 class Map:
     def __init__(self):
-        self.bucketArray = ListaEnlazadaDoble()
+        self.bucketArray = ArrayList()
         self.numBuckets = 10
         self.size = 0
         for i in range(0, self.numBuckets):
-            self.bucketArray.empujar_adelante(None)
+            self.bucketArray.add(None)
 
-    def size(self) -> int:
+    def getSize(self) -> int:
         return self.size
 
     def isEmpty(self) -> bool:
-        return self.size() == 0
+        return self.getSize() == 0
 
     def hashFunction(self, value: any) -> int:
         return id(value)
@@ -39,11 +54,11 @@ class Map:
     def remove(self, key: any) -> any:
 
         # Apply hash function to find index for given key
-        bucketIndex = self.__getBucketIndex(k)
+        bucketIndex = self.__getBucketIndex(key)
         hashCode = self.__hashCode(key)
         
         # Get head of chain
-        head: HashNode = self.bucketArray.buscar_nodo(bucketIndex)
+        head: HashNode = self.bucketArray.get(bucketIndex)
         
         # Search for kye in its chain
         prev: HashNode = None
@@ -64,13 +79,13 @@ class Map:
         if prev != None:
             prev.next = head.next
         else: 
-            self.bucketArray.buscar_nodo(bucketIndex).dato = head.next
+            self.bucketArray.set(bucketIndex, head.next)
         return head.value
     
     def get(self, key: any) -> any:
         bucketIndex = self.__getBucketIndex(key)
         hashCode = self.__hashCode(key)
-        head: HashNode = self.bucketArray.buscar_nodo(bucketIndex)
+        head: HashNode = self.bucketArray.get(bucketIndex)
         
         # Search key in chain.
         while head != None:
@@ -83,7 +98,7 @@ class Map:
     def add(self, key: any, value: any) -> None:
         bucketIndex = self.__getBucketIndex(key)
         hashCode = self.__hashCode(key)
-        head: HashNode = self.bucketArray.buscar_nodo(bucketIndex)
+        head: HashNode = self.bucketArray.get(bucketIndex)
         
         # Check if key is already present
         while head != None:
@@ -94,21 +109,21 @@ class Map:
 
         # Inset key in chain
         self.size += 1
-        head = self.bucketArray.buscar_nodo(bucketIndex)
+        head = self.bucketArray.get(bucketIndex)
         newNode: HashNode = HashNode(key, value, hashCode)
         newNode.next = head
-        self.bucketArray.buscar_nodo(bucketIndex).dato = newNode
+        self.bucketArray.set(bucketIndex, newNode)
 
         # If load factor goes beyond threshold, then 
         # double hash table size.
         if ((1.0 * self.size) / self.numBuckets >= 0.7):
-            temp: ListaEnlazadaDoble = self.bucketArray
-            self.bucketArray = ListaEnlazadaDoble()
+            temp: ArrayList = self.bucketArray
+            self.bucketArray = ArrayList()
             self.numBuckets = 2 * self.numBuckets
             self.size = 0
             for i in range(self.numBuckets):
-                self.bucketArray.empujar_adelante(None)
-            for headNode in self.bucketArray.nodos():
+                self.bucketArray.add(None)
+            for headNode in temp.data:
                 while headNode != None:
                     self.add(headNode.key, headNode.value)
                     headNode = headNode.next
@@ -120,8 +135,8 @@ if __name__ == "__main__":
     dicc.add("code", 2)
     dicc.add("this", 4)
     dicc.add("hi", 5)
-    print(dicc.size())
+    print(dicc.getSize())
     print(dicc.remove("this"))
     print(dicc.remove("this"))
-    print(dicc.size())
+    print(dicc.getSize())
     print(dicc.isEmpty())
