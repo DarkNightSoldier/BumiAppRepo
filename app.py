@@ -2,6 +2,8 @@ import src
 from flask import Flask, jsonify, request, make_response
 from flask.helpers import send_from_directory 
 from flask_cors import CORS
+from src.estructuras.arbol_bst import ArbolBST
+from src.estructuras.arbol_avl import ArbolAVL
 from src.estructuras.colas import ColaArrayBased
 from src.estructuras.listas_enlazadas import ListaEnlazada, ListaEnlazadaConCola, ListaEnlazadaDoble
 from src.objetos.usuario import Cliente, Funcionario
@@ -9,7 +11,7 @@ from src.objetos.producto import Articulo
 from src.objetos.pedido import Pedido
 from src.estructuras.lista_circular_doble import ListaEnlazadaCircularDoble
 
-articulos = ListaEnlazadaConCola()
+articulos = ArbolBST()
 usuarios = ListaEnlazada()
 pedidos = ListaEnlazadaDoble()
 
@@ -138,7 +140,7 @@ def crear_nuevo_articulo():
     impuesto_porcentaje = data["impuesto_porcentaje"]
     descuento = data["descuento"]
     articulo = Articulo(id, nombre, stock, url_img, precio_antes_impuesto, impuesto_porcentaje, descuento)
-    articulos.empujar_atras(articulo)
+    articulos.insertar(articulo)
     return jsonify({'status' : 200})
 
 @app.route("/api/articulo/actualizar_articulo", methods = ["POST"])

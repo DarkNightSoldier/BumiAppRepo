@@ -1,9 +1,12 @@
+import sys
+
 class Nodo:
     def __init__(self, dato = None):
         self.dato = dato
         self.hijo_izq = None
         self.hijo_der = None
-
+        sys.setrecursionlimit(10**9)
+        
 #La clase ArbolBST implementa un árbol de búsqueda binario
 class ArbolBST:
     def __init__(self):
@@ -15,14 +18,14 @@ class ArbolBST:
         if nodo == None:
             return Nodo(dato)
         elif dato.id<nodo.dato.id:
-            nodo.hijo_izq = self.insertar_recursivo(self,nodo.hijo_izq,dato)
+            nodo.hijo_izq = self.insertar_recursivo(nodo.hijo_izq,dato)
         elif dato.id>nodo.dato.id:
-            nodo.hijo_der = self.insertar_recursivo(self,nodo.hijo_der,dato)
+            nodo.hijo_der = self.insertar_recursivo(nodo.hijo_der,dato)
         return nodo
 
     #Método para añadir un nuevo nodo al árbol
     def insertar(self,dato):
-        self.raiz = self.insertar(self,self.raiz,dato)
+        self.raiz = self.insertar_recursivo(self.raiz,dato)
 
     #Busca el dato del nodo con el id buscado de manera recursiva en el subárbol de nodo
     def buscar_recursivo(self,id,nodo):
@@ -37,8 +40,8 @@ class ArbolBST:
         return -1
    
     #Implementar buscar_recursivo para encontrar el nodo cuyo id coincida con el id buscado
-    def buscar(self,id):
-        return self.buscar_recursivo(self,id,self.raiz).dato
+    def buscar_nodo(self,id):
+        return self.buscar_recursivo(id,self.raiz)
 
     #Busca el dato del nodo mínimo de un subárbol de manera recursiva
     def buscar_min_recursivo(self,nodo):
@@ -49,24 +52,26 @@ class ArbolBST:
     
     #Método que elimina el nodo con el id buscado
     def eliminar_recursivo(self,nodo,id):
-        nodo_a_eliminar = self.buscar_recursivo(id,nodo)
-        if nodo_a_eliminar==-1:
-            pass
-        elif nodo_a_eliminar.hijo_izq == None and nodo_a_eliminar.hijo_der==None:
-            nodo_a_eliminar = None
-        elif nodo_a_eliminar.hijo_izq==None:
-            nodo_a_eliminar = nodo_a_eliminar.hijo_der
-            nodo_a_eliminar.hijo_der = None    
-        elif nodo_a_eliminar.hijo_der==None:
-            nodo_a_eliminar = nodo_a_eliminar.hijo_izq
-            nodo_a_eliminar.hijo_izq = None
+        if nodo == None:
+            return None
+        if nodo.hijo_der==None and nodo.hijo_izq==None:
+            nodo = None
+        elif id<nodo.dato.id:
+            nodo.hijo_izq = self.eliminar_recursivo(nodo.hijo_izq,id)
+        elif id>nodo.dato.id:
+            nodo.hijo_der = self.eliminar_recursivo(nodo.hijo_der,id)
+        elif nodo.hijo_izq!=None and nodo.hijo_der!=None:
+            nodo.dato = self.buscar_min_recursivo(nodo.hijo_der).dato
+            nodo.hijo_der = self.eliminar_recursivo(nodo.hijo_der, id)
         else:
-            nodo_menor = self.buscar_min_recursivo(nodo_a_eliminar.hijo_der)
-            nodo_a_eliminar.dato = nodo_menor.dato
-            self.eliminar_recursivo(nodo_a_eliminar.hijo_der,nodo_menor.id)
+            nodo = nodo.hijo_der if nodo.hijo_der!=None else nodo.hijo_izq
+        return nodo
 
     def eliminar(self,id):
-        self.eliminar_recursivo(self.raiz,id)
+        try:
+            self.raiz = self.eliminar_recursivo(self.raiz,id)
+        except:
+            self.raiz = None
     
     #Método para encontrar la altura de un subárbol de manera recursiva
     def altura_subarbol(self,nodo):
