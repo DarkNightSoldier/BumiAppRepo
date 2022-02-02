@@ -140,3 +140,4 @@ if __name__ == "__main__":
     print(dicc.remove("this"))
     print(dicc.getSize())
     print(dicc.isEmpty())
+    print(dicc.hashFunction(dicc))
