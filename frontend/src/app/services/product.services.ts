@@ -11,13 +11,13 @@ export class ProductService {
     constructor(private http: HttpClient, private router: Router) {}
 
     submitProduct(
-        id: number, 
+        id: string, 
         nombre: string,
-        stock: number, 
+        stock: string, 
         url_img: string, 
-        precio_antes_impuesto: number, 
-        impuesto_porcentaje: number, 
-        descuento: number
+        precio_antes_impuesto: string, 
+        impuesto_porcentaje: string, 
+        descuento: string
     ){
         const productData: Product = {
             id: id, 
@@ -32,6 +32,21 @@ export class ProductService {
         console.log("Data that will be sent to server: ")
         console.log(productData);
         return this.http.post(this.endpoint + "/api/articulo/crear_nuevo_articulo", productData)
+    }
+
+    getProduct(
+        id: string
+    ){
+        const productData: Product = {
+            id: id, 
+            nombre: "",
+            stock: "", 
+            url_img: "", 
+            precio_antes_impuesto: "", 
+            impuesto_porcentaje: "", 
+            descuento: ""
+        }
+        return this.http.post(this.endpoint + "/api/articulo/consultar_articulo", productData)
     }
 
 

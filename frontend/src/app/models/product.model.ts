@@ -1,9 +1,9 @@
 export interface Product{
-    id: number, 
+    id: string, 
     nombre: string,
-    stock: number, 
+    stock: string, 
     url_img: string, 
-    precio_antes_impuesto: number, 
-    impuesto_porcentaje: number, 
-    descuento: number
+    precio_antes_impuesto: string, 
+    impuesto_porcentaje: string, 
+    descuento: string
 }

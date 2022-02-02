@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { ProductoComponent } from './producto/producto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListaComponent } from './lista/lista.component';
 // Rutas
 
 //import { app_routing } from './app-routing.module'; 
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    ProductoComponent
+    ProductoComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,

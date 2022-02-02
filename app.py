@@ -158,9 +158,12 @@ def actualizar_articulo():
     setattr(objeto.dato, atributo, valor)
     return jsonify({'status' : 200})
 
-@app.route("/api/articulo/consultar_articulo", methods = ["POST"])
+@app.route("/api/articulo/consultar_articulo", methods = ["POST", "GET"])
 def consultar_articulo():
-    data = request.values
+    print("CONSULTAR ARTICULO")
+    data = request.get_json()
+    if data == None: 
+       data = request.values
     id = int(data["id"])
     objeto = articulos.buscar_nodo(id)
     if isinstance(objeto, int): 
