@@ -15,6 +15,7 @@ from src.estructuras.hash import Map
 articulos = ArbolBST()
 usuarios = ListaEnlazada()
 pedidos = ListaEnlazadaDoble()
+usuarios_hash = Map()
 
 # Ini app.
 app = Flask(__name__)
@@ -43,9 +44,24 @@ def status():
     """
     return jsonify({'status' : 200})
 
+@app.route("/api/usuario/nuevo_cliente_hash", methods = ["POST"])
+def nuevo_client_hash():
+    data = request.values
+    id = int(data["id"])
+    nombres = data["nombres"]
+    apellidos = data["apellidos"]
+    contrasena = data["contrasena"]
+    correo = data["correo"]
+    ciudad = data["ciudad"]
+    direccion = data["direccion"]
+    telefono = data["telefono"]
+    zip = data["zip"]
+    cliente = Cliente(id, nombres, apellidos, contrasena, correo, ciudad, direccion, 
+                    telefono, zip)
+    usuarios_hash.add(id, cliente)
+    return jsonify({'status' : 200})
+
 @app.route("/api/usuario/nuevo_cliente", methods = ["POST"])
-
-
 def nuevo_cliente():
     data = request.values
     id = int(data["id"])
@@ -62,6 +78,27 @@ def nuevo_cliente():
     nodo = usuarios.buscar_nodo(id)
     usuarios.empujar_atras(cliente)
     return jsonify({'status' : 200})
+
+@app.route("/api/usuario/consultar_cliente_hash", methods = ["POST"])
+def consultar_cliente_hash():
+    data = request.values
+    id = int(data["id"])
+    objeto = usuarios_hash.get(id)
+    if objeto is None: 
+        return jsonify({'mensaje' : "El usuario no existe."}), 404
+    data = {}
+    data["id"] = objeto.dato.id
+    data["nombres"] = objeto.dato.nombres
+    data["apellidos"] = objeto.dato.apellidos
+    data["rol"] = objeto.dato.rol
+    data["contrasena"] = objeto.dato.contrasena
+    data["correo"] = objeto.dato.correo
+    data["ciudad"] = objeto.dato.ciudad
+    data["direccion"] = objeto.dato.direccion
+    data["telefono"] = objeto.dato.telefono
+    data["zip"] = objeto.dato.zip
+    data["pedidos"] = objeto.dato.pedidos.imprimir()
+    return jsonify(data), 200
 
 @app.route("/api/usuario/nuevo_funcionario",methods = ["POST"])
 def nuevo_funcionario_hash():
