@@ -25,7 +25,7 @@ class ArrayList:
 class Map:
     def __init__(self):
         self.bucketArray = ArrayList()
-        self.numBuckets = 10
+        self.numBuckets = 1000
         self.size = 0
         for i in range(0, self.numBuckets):
             self.bucketArray.add(None)
