@@ -10,6 +10,7 @@ from src.objetos.usuario import Cliente, Funcionario
 from src.objetos.producto import Articulo
 from src.objetos.pedido import Pedido
 from src.estructuras.lista_circular_doble import ListaEnlazadaCircularDoble
+from src.estructuras.hash import Map
 
 articulos = ArbolBST()
 usuarios = ListaEnlazada()
