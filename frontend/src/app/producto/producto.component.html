@@ -1,0 +1,104 @@
+<app-header></app-header>
+<div class="container mt-4">
+
+    <section class="section" style = "margin-top: 60px;">
+        <div class="row">
+            <div class="col">
+                <h1 style="color: rgba(0, 153, 122, 1)">Registro de productos</h1>
+            </div>
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mt-4" style="color: rgba(0, 153, 122, 1)">Información del producto</h4>
+
+                        <!-- General Form Elements -->
+                        <form [formGroup]="form" (submit)="onSubmit()">
+
+                            <!-- ID DEL PRODUCTO -->
+                            <label class="form-check-label mt-2" for="id">
+                                ID del producto
+                            </label>
+                            <input class="form-control my-2" type="text" placeholder="Ejemplo: 125"
+                                formControlName="id">
+
+                            <!-- NOMBRE DEL PRODUCTO -->
+                            <label class="form-check-label mt-2" for="nombre">
+                                Nombre del producto
+                            </label>
+                            <input class="form-control my-2" type="text" placeholder="Ejemplo: Detergente IBEMEX"
+                                formControlName="nombre">
+
+                            <!-- STOCK DEL PRODUCTO -->
+                            <label class="form-check-label mt-2" for="stock">
+                                Stock
+                            </label>
+                            <input class="form-control my-2" type="text" placeholder="Ejemplo: 300"
+                                formControlName="stock">
+
+                            <!-- URL IMAGEN DEL PRODUCTO -->
+                            <label class="form-check-label mt-2" for="url_img">
+                                URL Imagen
+                            </label>
+                            <input class="form-control my-2" type="text" placeholder="Ejemplo: https://ahumados.shop/wp-content/uploads/2021/06/GettyImages-1224918845-2000.jpg"
+                                formControlName="url_img">
+
+                            <!-- PRECIO ANTES DE IMPUESTOS -->
+                            <label class="form-check-label mt-2" for="precio_antes_impuesto">
+                                Precio antes de impuestos
+                            </label>
+                            <input class="form-control my-2" type="text" placeholder="Ejemplo: 200000"
+                                formControlName="precio_antes_impuesto">
+
+                            <!-- IMPUESTO PORCENTAJE -->
+                            <label class="form-check-label mt-2" for="impuesto_porcentaje">
+                                Impuesto porcentaje
+                            </label>
+                            <input class="form-control my-2" type="text" placeholder="Ejemplo: 0.19"
+                                formControlName="impuesto_porcentaje">
+
+                            <!-- DESCUENTO PORCENTAJE -->
+                            <label class="form-check-label mt-2" for="descuento">
+                                Descuento porcentaje
+                            </label>
+                            <input class="form-control my-2" type="text" placeholder="Ejemplo: 0.2"
+                                formControlName="descuento">
+
+                            <div class="row mb-2 mt-4">
+
+                                <div *ngIf="!this.isLoading" class="col-12 text-center mb-0">
+                                    <button type="submit" class="btn btn-primary"
+                                        [disabled]="form.invalid">Registrar producto</button>
+                                </div>
+                                <div *ngIf="this.isLoading" class="col-12 text-center mb-0">
+                                    <button class="btn btn-primary" type="submit" [disabled]="form.invalid"
+                                        style="width: 166px;">
+                                        <span class="spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                        Cargando...
+                                    </button>
+                                </div>
+                                <div *ngIf="success" class="alert alert-success mt-3 text-center">
+                                    <p class="m-0">Producto registrado exitosamente.</p>
+                                </div>
+                                <div *ngIf="error" class="alert alert-danger mt-3 text-center">
+                                    <p class="m-0">Ha ocurrido un error.</p>
+                                
+                                </div>
+
+                            </div>
+
+                        </form><!-- End General Form Elements -->
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+</div>
+
+<app-footer></app-footer>

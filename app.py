@@ -127,9 +127,11 @@ def eliminar_usuario():
         return jsonify({'status' : 401})
     return jsonify({'status' : 200})
 
-@app.route("/api/articulo/crear_nuevo_articulo", methods = ["POST"])
+@app.route("/api/articulo/crear_nuevo_articulo", methods = ["POST", "GET"])
 def crear_nuevo_articulo():
-    data = request.values
+    data = request.get_json()
+    if data == None: 
+       data = request.values
     id = int(data["id"])
     nodo = articulos.buscar_nodo(id)
     if not isinstance(nodo, int):
@@ -276,4 +278,4 @@ def limpiar_datos():
     return jsonify({'status' : 200})
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(port=5000, debug=False)
