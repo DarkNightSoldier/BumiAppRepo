@@ -44,7 +44,7 @@ def status():
     """
     return jsonify({'status' : 200})
 
-@app.route("/api/usuario/nuevo_client_hash", methods = ["POST"])
+@app.route("/api/usuario/nuevo_cliente_hash", methods = ["POST"])
 def nuevo_client_hash():
     data = request.values
     id = int(data["id"])
