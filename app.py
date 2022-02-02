@@ -147,9 +147,11 @@ def eliminar_usuario():
         return jsonify({'status' : 401})
     return jsonify({'status' : 200})
 
-@app.route("/api/articulo/crear_nuevo_articulo", methods = ["POST"])
+@app.route("/api/articulo/crear_nuevo_articulo", methods = ["POST", "GET"])
 def crear_nuevo_articulo():
-    data = request.values
+    data = request.get_json()
+    if data == None: 
+       data = request.values
     id = int(data["id"])
     nodo = articulos.buscar_nodo(id)
     if not isinstance(nodo, int):
@@ -176,9 +178,12 @@ def actualizar_articulo():
     setattr(objeto.dato, atributo, valor)
     return jsonify({'status' : 200})
 
-@app.route("/api/articulo/consultar_articulo", methods = ["POST"])
+@app.route("/api/articulo/consultar_articulo", methods = ["POST", "GET"])
 def consultar_articulo():
-    data = request.values
+    print("CONSULTAR ARTICULO")
+    data = request.get_json()
+    if data == None: 
+       data = request.values
     id = int(data["id"])
     objeto = articulos.buscar_nodo(id)
     if isinstance(objeto, int): 
@@ -305,4 +310,4 @@ def crear_usuario_hash():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(port=5000, debug=False)
