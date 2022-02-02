@@ -92,7 +92,7 @@ def nuevo_cliente_hash():
     dicc.add("telefono",telefono)
     dicc.add("zip",zip)
     return jsonify({'status' : 200})
-    
+    ## mire
     # Añadir a tabla Hash
     
 
