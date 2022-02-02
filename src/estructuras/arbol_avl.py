@@ -80,9 +80,9 @@ class ArbolAVL:
         if nodo == None:
             return Nodo(dato)
         elif dato.id<nodo.dato.id:
-            nodo.hijo_izq = self.insertar_recursivo(self,nodo.hijo_izq,dato)
+            nodo.hijo_izq = self.insertar_recursivo(nodo.hijo_izq,dato)
         elif dato.id>nodo.dato.id:
-            nodo.hijo_der = self.insertar_recursivo(self,nodo.hijo_der,dato)
+            nodo.hijo_der = self.insertar_recursivo(nodo.hijo_der,dato)
 
         #Actualizamos la actura del nodo
         nodo.altura = max(self.altura_subarbol(nodo.hijo_izq),self.altura_subarbol(nodo.hijo_der))+1
@@ -91,17 +91,19 @@ class ArbolAVL:
 
     #Método que elimina el nodo con el id buscado
     def eliminar_recursivo(self,nodo,id):
-        nodo_a_eliminar = self.buscar_recursivo(id,nodo)
-        if nodo_a_eliminar==-1:
-            pass
-        elif nodo_a_eliminar.hijo_izq == None and nodo_a_eliminar.hijo_der==None:
-            nodo_a_eliminar = None
-        elif nodo_a_eliminar.hijo_der==None:
-            nodo_a_eliminar = nodo_a_eliminar.hijo_izq
+        if nodo == None:
+            return None
+        if nodo.hijo_der==None and nodo.hijo_izq==None:
+            nodo = None
+        elif id<nodo.dato.id:
+            nodo.hijo_izq = self.eliminar_recursivo(nodo.hijo_izq,id)
+        elif id>nodo.dato.id:
+            nodo.hijo_der = self.eliminar_recursivo(nodo.hijo_der,id)
+        elif nodo.hijo_izq!=None and nodo.hijo_der!=None:
+            nodo.dato = self.buscar_min_recursivo(nodo.hijo_der).dato
+            nodo.hijo_der = self.eliminar_recursivo(nodo.hijo_der, id)
         else:
-            nodo_menor = self.buscar_min_recursivo(nodo_a_eliminar.hijo_der)
-            nodo_a_eliminar.dato = nodo_menor.dato
-            self.eliminar_recursivo(nodo_a_eliminar.hijo_der,nodo_menor.id)
+            nodo = nodo.hijo_der if nodo.hijo_der!=None else nodo.hijo_izq
         
         #Actualizamos la actura del nodo
         nodo.altura = max(self.altura_subarbol(nodo.hijo_izq),self.altura_subarbol(nodo.hijo_der))-1
@@ -126,7 +128,7 @@ class ArbolAVL:
         return -1
    
     #Implementar buscar_recursivo para encontrar el nodo cuyo id coincida con el id buscado
-    def buscar(self,id):
+    def buscar_nodo(self,id):
         return self.buscar_recursivo(self,id,self.raiz).dato
 
     #Busca el dato del nodo mínimo de un subárbol de manera recursiva
@@ -139,7 +141,7 @@ class ArbolAVL:
     def eliminar(self,id):
         self.eliminar_recursivo(self.raiz,id)
     
-    #Método para encontrar la altura de un subárbol de manera recursiva
+    #Método para encontrar la altura de un subárbol de manera recursiva, iniciando en 1
     def altura_subarbol(self,nodo):
         if nodo == None:
             return -1
