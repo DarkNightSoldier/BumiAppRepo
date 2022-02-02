@@ -6,7 +6,7 @@ from src.estructuras.arbol_bst import ArbolBST
 from src.estructuras.arbol_avl import ArbolAVL
 from src.estructuras.colas import ColaArrayBased
 from src.estructuras.listas_enlazadas import ListaEnlazada, ListaEnlazadaConCola, ListaEnlazadaDoble
-from src.objetos.usuario import Cliente, Funcionario
+from src.objetos.usuario import Cliente, Funcionario,Cliente2
 from src.objetos.producto import Articulo
 from src.objetos.pedido import Pedido
 from src.estructuras.lista_circular_doble import ListaEnlazadaCircularDoble
@@ -14,7 +14,10 @@ from src.estructuras.hash import Map
 
 articulos = ArbolBST()
 usuarios = ListaEnlazada()
+usuarios2 = Map()
 pedidos = ListaEnlazadaDoble()
+dicc: Map = Map()
+
 
 # Ini app.
 app = Flask(__name__)
@@ -45,7 +48,6 @@ def status():
 
 @app.route("/api/usuario/nuevo_cliente", methods = ["POST"])
 
-
 def nuevo_cliente():
     data = request.values
     id = int(data["id"])
@@ -63,9 +65,11 @@ def nuevo_cliente():
     usuarios.empujar_atras(cliente)
     return jsonify({'status' : 200})
 
-@app.route("/api/usuario/nuevo_funcionario",methods = ["POST"])
-def nuevo_funcionario_hash():
+@app.route("/api/usuario/nuevo_cliente_hash",methods = ["POST"])
+def nuevo_cliente_hash():
+    print("xd")
     data = request.values
+    # Save Data
     id = int(data["id"])
     nombres = data["nombres"]
     apellidos = data["apellidos"]
@@ -75,8 +79,20 @@ def nuevo_funcionario_hash():
     direccion = data["direccion"]
     telefono = data["telefono"]
     zip = data["zip"]
-    funcionario = Funcionario(id, nombres, apellidos, contrasena, correo, ciudad, direccion, 
+
+    cliente = Cliente2(id, nombres, apellidos, contrasena, correo, ciudad, direccion, 
                     telefono, zip)
+    dicc.add("id",id)
+    dicc.add("nombres",nombres)
+    dicc.add("apellido",apellidos)
+    dicc.add("contrasena",contrasena)
+    dicc.add("correo",correo)
+    dicc.add("ciudad",ciudad)
+    dicc.add("direccion",direccion)
+    dicc.add("telefono",telefono)
+    dicc.add("zip",zip)
+    return jsonify({'status' : 200})
+    
     # Añadir a tabla Hash
     
 
@@ -296,13 +312,14 @@ def limpiar_datos():
     return jsonify({'status' : 200})
 
 @app.route("/api/crear_usuario_hash",methods = ["POST"])
-
 def crear_usuario_hash():
     print("Hello")
-    dicc: Map = Map() # Implementacion con un Map de Usuario
+    data = request.values
+    
+    # Implementacion con un Map de Usuario
     dicc.add()
     print("Acabo")
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(port= 5000,debug=False)

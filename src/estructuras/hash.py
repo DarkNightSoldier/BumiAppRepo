@@ -94,6 +94,16 @@ class Map:
             head = head.next
         # If key not found
         return None
+    
+    def getAll(self, key: any) -> None:
+        bucketIndex = self.__getBucketIndex(key)
+        hashCode = self.__hashCode(key)
+        head: HashNode = self.bucketArray.get(bucketIndex)
+
+        while head != None: 
+            print(head.value)
+            head = head.next
+
 
     def add(self, key: any, value: any) -> None:
         bucketIndex = self.__getBucketIndex(key)
@@ -128,6 +138,28 @@ class Map:
                     self.add(headNode.key, headNode.value)
                     headNode = headNode.next
 
+    def search_value(self, key: any) -> any:
+        # Apply hash function to find index for given key
+        bucketIndex = self.__getBucketIndex(key)
+        hashCode = self.__hashCode(key)
+        
+        # Get head of chain
+        head: HashNode = self.bucketArray.get(bucketIndex)
+        
+        # Search for kye in its chain
+        prev: HashNode = None
+        while head != None:
+            # If key found
+            if (head.key == key and head.hashCode == hashCode):
+                break
+            # Else keep moving in chain
+            prev = head
+            head = head.next
+        if head == None:
+            return None
+
+        return head.value
+
 
 if __name__ == "__main__":
     dicc: Map = Map()
@@ -135,6 +167,9 @@ if __name__ == "__main__":
     dicc.add("code", 2)
     dicc.add("this", 4)
     dicc.add("hi", 5)
+    print()
+    dicc.getAll()
+    print()
     print(dicc.getSize())
     print(dicc.remove("this"))
     print(dicc.remove("this"))

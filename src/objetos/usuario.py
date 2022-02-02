@@ -1,5 +1,6 @@
 from flask import jsonify
 from ..estructuras.colas import ColaSLL
+from ..estructuras.hash import Map
 
 class Usuario:
 
@@ -38,12 +39,28 @@ class Cliente(Usuario):
         super().__init__(id, nombres, apellidos,"usuario", contrasena,
         correo, ciudad, direccion, telefono, zip, pedidos)
 
+class Cliente2(Usuario):
+    def __init__(self, id, nombres, apellidos, contrasena, 
+    correo, ciudad, direccion, telefono, zip):
+        pedidos = Map()
+        super().__init__(id, nombres, apellidos,"usuario", contrasena,
+        correo, ciudad, direccion, telefono, zip, pedidos)
+
+
 class Funcionario(Usuario):
     def __init__(self, id, nombres, apellidos, contrasena, 
     correo, ciudad, direccion, telefono, zip):
         pedidos = ColaSLL()
         super().__init__(id, nombres, apellidos,"funcionario", contrasena,
         correo, ciudad, direccion, telefono, zip, pedidos)
+
+
+class FuncionarioH(Usuario):
+    def __init__(self, id, nombres, apellidos, contrasena, 
+    correo, ciudad, direccion, telefono, zip):
+        pedidos = Map()
+        super().__init__(id, nombres, apellidos,"funcionario", contrasena,
+            correo, ciudad, direccion, telefono, zip, pedidos)
 
 '''
 nuevo_usuario = Usuario(1000182041,"Pepito","Perez","cliente","amoamimami","ola@ola.com","Bogotá",

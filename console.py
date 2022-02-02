@@ -32,6 +32,7 @@ class Consola:
             15: self.anadir_pedido_funcionario,
             16: self.marcar_pedido_entregado,
             17: self.clear,
+            19: self.nuevo_cliente_hash,
         }
         bienvenida = pyfiglet.figlet_format("Te damos la bienvenida a Bumi!")
         print(bienvenida)
@@ -55,9 +56,11 @@ class Consola:
         print("16. Marca pedido como entregado")
         print("17. Limpiar Consola")
         print("18. Salir de la consola")
-        print("")
+        print("19. Agregar usuarios hash")
+        print()
         seleccion = int(input("Digite una opción: "))
-        print("")
+        print()
+        
         if seleccion != 18:
             self.opciones[seleccion]()
             self.menu()
@@ -70,7 +73,7 @@ class Consola:
             os.system("cls")
         else:
             os.system("clear")
-
+            
     def ingresar_info_usuario(self):
         kwargs = {}
         kwargs["id"] = input("Digite el id del cliente: ")
@@ -123,11 +126,25 @@ class Consola:
         else: 
             print("Solicitud ejecutada exitosamente.")
             return 200
+    # Nuevo cliente Hash
 
+    def nuevo_cliente_hash(self, **kwargs):
+        print("->INICIO")
+        if len(kwargs.items()) == 0 : 
+            kwargs = self.ingresar_info_usuario()
+        
+        res = requests.post(self.endpoint + "/api/usuario/nuevo_cliente_hash", kwargs)
+        self.procesar_respuesta(res)
+        print("->ACABO")
+        
+    
     # Nuevo cliente
     def nuevo_cliente(self, **kwargs):
+        print("->",kwargs)
         if len(kwargs.items()) == 0:
             kwargs = self.ingresar_info_usuario()
+        #print(kwargs["id"])
+        #print("RRR")
         res = requests.post(self.endpoint + "/api/usuario/nuevo_cliente", kwargs)
         self.procesar_respuesta(res)
 
