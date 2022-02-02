@@ -44,6 +44,8 @@ def status():
     return jsonify({'status' : 200})
 
 @app.route("/api/usuario/nuevo_cliente", methods = ["POST"])
+
+
 def nuevo_cliente():
     data = request.values
     id = int(data["id"])
@@ -60,6 +62,24 @@ def nuevo_cliente():
     nodo = usuarios.buscar_nodo(id)
     usuarios.empujar_atras(cliente)
     return jsonify({'status' : 200})
+
+@app.route("/api/usuario/nuevo_funcionario",methods = ["POST"])
+def nuevo_funcionario_hash():
+    data = request.values
+    id = int(data["id"])
+    nombres = data["nombres"]
+    apellidos = data["apellidos"]
+    contrasena = data["contrasena"]
+    correo = data["correo"]
+    ciudad = data["ciudad"]
+    direccion = data["direccion"]
+    telefono = data["telefono"]
+    zip = data["zip"]
+    funcionario = Funcionario(id, nombres, apellidos, contrasena, correo, ciudad, direccion, 
+                    telefono, zip)
+    # Añadir a tabla Hash
+    
+
 
 @app.route("/api/usuario/nuevo_funcionario", methods = ["POST"])
 def nuevo_funcionario():
@@ -274,6 +294,15 @@ def limpiar_datos():
     usuarios = ListaEnlazadaDoble()
     pedidos = ListaEnlazadaDoble()
     return jsonify({'status' : 200})
+
+@app.route("/api/crear_usuario_hash",methods = ["POST"])
+
+def crear_usuario_hash():
+    print("Hello")
+    dicc: Map = Map() # Implementacion con un Map de Usuario
+    dicc.add()
+    print("Acabo")
+
 
 if __name__ == '__main__':
     app.run(debug=False)
